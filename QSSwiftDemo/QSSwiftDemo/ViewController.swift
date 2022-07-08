@@ -19,6 +19,9 @@ class ViewController: UIViewController {
         print("\(name)")
     }
 
+    func funcTest2(_ sex: String) {
+        print("\(sex)")
+    }
     
 }
 
