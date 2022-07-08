@@ -15,10 +15,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    func funcTest1(_ name: String) {
-        print("\(name)")
-    }
-
     func funcTest2(_ sex: String) {
         print("\(sex)")
     }
