@@ -15,7 +15,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    // 注释
     func funcString(_ str: String) {
         print("desc:\(str)")
     }
