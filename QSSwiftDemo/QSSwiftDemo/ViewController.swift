@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
 
     func funcString(_ str: String) {
-        print("\(str)")
+        print("desc:\(str)")
     }
     
     func funInt(_ num: Int) {
