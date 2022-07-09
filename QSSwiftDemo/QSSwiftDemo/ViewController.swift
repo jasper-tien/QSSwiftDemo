@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     }
     
     func funcFloaf(_ num: Float) {
-        print("desc:\(num)")
+        print("\(num)")
     }
     
     func funcDouble(_ num: Double) {
