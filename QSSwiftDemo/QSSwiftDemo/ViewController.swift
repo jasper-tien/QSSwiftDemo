@@ -15,9 +15,20 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    func funcTest2(_ sex: String) {
-        print("\(sex)")
+    func funcString(_ str: String) {
+        print("\(str)")
     }
     
+    func funInt(_ num: Int) {
+        print("\(num)")
+    }
+    
+    func funcFloaf(_ num: Float) {
+        print("\(num)")
+    }
+    
+    func funcDouble(_ num: Double) {
+        print("\(num)")
+    }
 }
 
