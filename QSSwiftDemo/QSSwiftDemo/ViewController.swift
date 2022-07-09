@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     }
     
     func funcDouble(_ num: Double) {
-        print("\(num)")
+        print("desc:\(num)")
     }
 }
 
