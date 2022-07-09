@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     }
     
     func funInt(_ num: Int) {
-        print("desc:\(num)")
+        print("\(num)")
     }
     
     func funcFloaf(_ num: Float) {
