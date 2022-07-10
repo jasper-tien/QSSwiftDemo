@@ -30,5 +30,9 @@ class ViewController: UIViewController {
     func funcDouble(_ num: Double) {
         print("desc:\(num)")
     }
+    
+    func funcAdd(_ a: Int , b: Int) {
+        print("add:\(a + b)")
+    }
 }
 
