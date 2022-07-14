@@ -7,7 +7,6 @@
 
 import UIKit
 
-//swift测试 demo
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -15,24 +14,5 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    func funcString(_ str: String) {
-        print("desc:\(str)")
-    }
-    
-    func funInt(_ num: Int) {
-        print("desc:\(num)")
-    }
-    
-    func funcFloaf(_ num: Float) {
-        print("desc:\(num)")
-    }
-    
-    func funcDouble(_ num: Double) {
-        print("desc:\(num)")
-    }
-    
-    func funcAdd(_ a: Int , b: Int) {
-        print("add:\(a + b)")
-    }
 }
 
