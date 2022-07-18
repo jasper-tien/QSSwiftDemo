@@ -7,6 +7,8 @@
 
 import UIKit
 
+typealias QSName = String
+
 class QSBaseTest: NSObject {
     
     public func test_fire() {
@@ -31,6 +33,8 @@ class QSBaseTest: NSObject {
         let httpMessage = (404, "not found")
         let (code, _) = httpMessage
         
+        var v1, v2, v3 : Int
+        var d : Double
         var var1: String? = String()
         var var2: String! = "tianmaotao"
         var var3: String = ""
