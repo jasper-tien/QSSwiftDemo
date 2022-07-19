@@ -12,6 +12,7 @@ typealias QSName = String
 class QSBaseTest: NSObject {
     
     public func test_fire() {
+        test_base()
         test_string()
         test_array();
         test_set();
@@ -31,19 +32,45 @@ class QSBaseTest: NSObject {
     
     func test_base() {
         let httpMessage = (404, "not found")
+        let httpMessage1 = (statusCode: 404, statusMessage: "not found")
+        // 元组内容分解
+        // 1、分解成单独的变量或者常量
         let (code, _) = httpMessage
+        // 2、通过下标索引访问
+        print("code:\(httpMessage.0) message:\(httpMessage.1)")
+        // 3、通过元素的名字访问
+        print("code:\(httpMessage1.statusCode) message:\(httpMessage1.statusMessage)")
         
         var v1, v2, v3 : Int
-        var d : Double
+        var d : Double?
         var var1: String? = String()
-        var var2: String! = "tianmaotao"
         var var3: String = ""
         var var4: String = var1 ?? var3
-        if var2 != nil {
-            print("print \(var2!)")
+        var name: QSName
+        
+        // If 语句以及强制展开
+        if var1 != nil {
+            print("print \(var1!)")
         }
         
+        // 可选项绑定
+        // 判断可选项是否包含值，如果包含就把值赋给一个临时的常量或者变量
         if let let1 = Int("3"), var var8 = Int("30"), let1 < var8 && let1 < 100 {
+            
+        }
+        
+        // 隐式展开可选项
+        //通过在声明的类型后边添加一个叹号，可以去掉检查的需求，也不必每次访问的时候都进行展开。
+        var var2: String! = "tianmaotao"
+        var var5 = var2
+        
+        // 错误处理
+        func canThrowAnError() throws {
+            // do nothing
+        }
+        do {
+            try canThrowAnError()
+        } catch {
             
         }
     }
