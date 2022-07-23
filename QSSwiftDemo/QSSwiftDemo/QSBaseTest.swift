@@ -42,7 +42,7 @@ class QSBaseTest: NSObject {
         print("code:\(httpMessage1.statusCode) message:\(httpMessage1.statusMessage)")
         
         var v1, v2, v3 : Int
-        var d : Double?
+        var double : Double?
         var var1: String? = String()
         var var3: String = ""
         var var4: String = var1 ?? var3
@@ -72,6 +72,36 @@ class QSBaseTest: NSObject {
             try canThrowAnError()
         } catch {
             
+        }
+        
+        // 合并空值运算符
+        // 合并空值运算符 （ a ?? b ）如果可选项 a  有值则展开，如果没有值，是 nil  ，则返回默认值 b 。表达式 a 必须是一个可选类型。表达式 b  必须与 a  的储存类型相同
+        var double1 = 10.0
+        var double2  = double ?? double1 // 等于 double != nil ? double! : double1
+        
+        // 闭区间运算符
+        // 闭区间运算符（ a...b ）定义了从 a  到 b  的一组范围
+        for index in 0...10 {
+            print("闭区间运算符:\(index)")
+        }
+        
+        // 半开区间运算符
+        // 半开区间运算符（ a..<b ）定义了从 a  到 b  但不包括 b  的区间，即 半开 ，因为它只包含起始值但并不包含结束值。
+        for index in 1..<10 {
+            print("半开区间运算符:\(index)")
+        }
+        
+        // 单侧区间
+        // 闭区间有另外一种形式来让区间朝一个方向尽可能的远——比如说，一个包含数组所有元素的区间，从索引 2 到数组的结束。在这种情况下，你可以省略区间运算符一侧的值。
+        var names: [String] = ["t", "m", "t"]
+        for name in names[1...] {
+            print("单侧区间:\(name)") // m, t
+        }
+        for name in names[...1] {
+            print("单侧区间:\(name)") // t, m
+        }
+        for name in names[..<2] {
+            print("单侧区间:\(name)") // t, m
         }
     }
     
