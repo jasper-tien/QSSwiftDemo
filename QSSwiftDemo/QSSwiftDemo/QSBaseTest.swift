@@ -123,29 +123,36 @@ class QSBaseTest: NSObject {
         if str.isEmpty {
             
         }
-        let str3: String = "我是1只🐶"
+        let str3: String = "tianmao"
         for c in str3 {
             print("打印字符 \(c)")
         }
         
         let chars: [Character] = ["我", "是" ,"1", "只" ,"🐱"]
         let str4: String = String(chars)
-        let str5: String = str + str1
+        var str5: String = str + str1
+        let cStr: Character = "1"
+        str5.append(cStr)
         var str6: String = String()
         str6.append("tianmaotao")
         str6.append("1")
         
-        let index0 = str3[str3.startIndex]
-        let index1 = str3[str3.index(before: str3.endIndex)]
-        let index2 = str3[str3.index(str.startIndex, offsetBy: 2)]
+        // 访问
+        let index0Char = str3[str3.startIndex] // t
+        let index1Char = str3[str3.index(after: str3.startIndex)] // i
+        let index6Char = str3[str3.index(before: str3.endIndex)] // o
+        let index3Char = str3[str3.index(str.startIndex, offsetBy: 2)] // a
         for index in str3.indices {
             print("\(str3[index])")
         }
         
+        //  插入
         var str7 = "word"
         str7.insert("h", at: str.startIndex)
         str7.insert(contentsOf: "ello ", at: str7.index(after: str7.startIndex ))
         
+        // 删除
+        str7.remove(at: str7.startIndex)
         let rang = str7.startIndex..<str7.index(after: str7.startIndex)
         str7.removeSubrange(rang)
         
@@ -163,6 +170,7 @@ class QSBaseTest: NSObject {
         array2 = []
         var array3 = Array(repeating: 2, count: 2)
         var array4 = Array(repeating: 1, count: 2)
+        // 合并数组
         var array5 = array3 + array4
         
         
@@ -211,10 +219,34 @@ class QSBaseTest: NSObject {
 //            print("\(str)")
         }
         
-        var set4 = set2.subtracting(set3);
-        for str in set4 {
-            print("\(str)")
-        }
+        // 返回一个合集，只包含set2合集值，不包含set3合集值的新合集。
+        var set4 = set2.subtracting(set3)
+        
+        // 返回一个合集，只包含set2和set3两个共享元素
+        var set5 = set2.intersection(set3)
+        
+        //返回一个合集，只包含set2和set3非共享元素
+        var set6 = set2.symmetricDifference(set3)
+        
+        // 返回一个合集，包含set2和set3所有值
+        var set7 = set2.union(set3)
+        
+        
+        // 使用“相等”运算符 ( == )来判断两个合集是否包含有相同的值；
+        // 使用 isSubset(of:) 方法来确定一个合集的所有值是被某合集包含；
+        // 使用 isSuperset(of:)方法来确定一个合集是否包含某个合集的所有值；
+        // 使用 isStrictSubset(of:) 或者 isStrictSuperset(of:)方法来确定是个合集是否为某一个合集的子集或者超集，但并不相等；
+        // 使用 isDisjoint(with:)方法来判断两个合集是否拥有完全不同的值。
+        let houseAnimals: Set = ["🐶", "🐱"]
+        let farmAnimals: Set = ["🐮", "🐔", "🐑", "🐶", "🐱"]
+        let cityAnimals: Set = ["🐦", "🐭"]
+         
+        houseAnimals.isSubset(of: farmAnimals)
+        // true
+        farmAnimals.isSuperset(of: houseAnimals)
+        // true
+        farmAnimals.isDisjoint(with: cityAnimals)
+        // true
     }
     
     func test_dictionary() {
@@ -223,12 +255,14 @@ class QSBaseTest: NSObject {
         dic = [:]
         var dic2 = [1:"1", 2:"2", 3:"3"]
         
-        if let value = dic2.updateValue("4", forKey: 4) {
+        if let oleValue = dic2.updateValue("4", forKey: 4) {
 //            dic2[1] = nil
             if let value1 = dic2.removeValue(forKey: 1) {
                 
             }
         }
+        dic[1] = "tian"
+        dic[2] = nil
         
         for (key, value) in dic2 {
             
