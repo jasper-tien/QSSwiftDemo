@@ -308,6 +308,7 @@ class QSBaseTest: NSObject {
             print("default")
         }
         
+        // 区间匹配
         let num = 89
         switch num {
         case 0..<10 :
@@ -320,6 +321,8 @@ class QSBaseTest: NSObject {
             print("none")
         }
         
+        // 元组
+        // 使用下划线（ _）来表明匹配所有可能的值
         let point = (2, 2)
         switch point {
         case (0, 0) :
@@ -334,6 +337,8 @@ class QSBaseTest: NSObject {
             print("none")
         }
         
+        // 值绑定
+        // 将匹配到的值临时绑定为一个常量或者变量，来给情况的函数体使用
         switch point {
         case (let x, 1):
             print("(\(x), 1)")
@@ -343,6 +348,7 @@ class QSBaseTest: NSObject {
             print("none")
         }
         
+        // Where
         switch point {
         case let(x, y) where x == y:
             print("x==y")
