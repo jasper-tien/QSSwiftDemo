@@ -457,11 +457,36 @@ class QSBaseTest: NSObject {
     }
     
     func test_闭包() {
+        // 闭包表达式语法
+        // { (parameters) -> (return type) in
+        //    statements
+        // }
         let sum1 = test_函数类型作为参数(1, b: 3, funcName: {
             (a: Int, b: Int) -> Int in
             let sum = a + b
             return sum
         })
+        // 从语境中推断类型(推断它的形式参数类型和返回类型)
+        // 从单表达式闭包隐式返回
+        let sum2 = test_函数类型作为参数(1, b: 3, funcName: { s1, s2 in
+            s1 + s2
+        })
+        // 简写的实际参数名
+        let sum3 = test_函数类型作为参数(1, b: 3) {
+            $0 + $1
+        }
+        
+        let sum_block = { (s1: Int, s2: Int) -> Int in
+            return s1 + s2
+        }
+        let sum4 = test_函数类型作为参数(1, b: 3, funcName: sum_block)
+        
+        let sum5 = test_函数类型作为参数(1, b: 3, funcName: test_sum)
+        
+        // 尾随闭包
+        let sum6 = test_函数类型作为参数(1, b: 3) { s1, s2 in
+            s1 + s2
+        }
     }
     func test_闭包简写() {
         let sum2 = test_函数类型作为参数(2, b: 3, funcName: {
@@ -508,6 +533,9 @@ class QSBaseTest: NSObject {
     var handlers: [() -> Void] = []
     func test_闭包逃逸(completionHandler: @escaping () -> Void) {
         handlers.append(completionHandler)
+    }
+    func test_非闭包逃逸(completionHandler:() -> Void) {
+        completionHandler()
     }
     
     enum Enum1 {
