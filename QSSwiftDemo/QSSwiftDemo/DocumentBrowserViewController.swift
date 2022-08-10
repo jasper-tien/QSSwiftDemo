@@ -25,8 +25,8 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         let baseTest = QSBaseTest()
         baseTest.test_fire()
         
-        let testObject = QSTestObject()
-        testObject.test_fire()
+        let enumTest = EnumTest()
+        enumTest.test_fire(.west)
         
         let man: ManPerson = ManPerson()
         man.book?.number = 10
