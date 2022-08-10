@@ -1,147 +1,11 @@
 //
-//  QSClaseStruct.swift
+//  QSClassTest.swift
 //  QSSwiftDemo
 //
-//  Created by tianmaotao on 2022/4/3.
+//  Created by tianmaotao on 2022/8/10.
 //
 
-import UIKit
-
-class QSTestObject : NSObject {
-    func test_fire() {
-        var point = Point(x: 9, y: 0)
-        var person = Person()
-        let person1 = person
-        let person2 = Person()
-        point.x = 10
-        point.y = 90
-        person.name = "xiaoming"
-        person.sex = "男"
-        person.point = point
-        person.point.x = 50
-        
-        var point1 = Point(x: 40, y: 10)
-        if person === person1 {
-            
-        }
-        if person !== person2 {
-            
-        }
-        
-        print("before:\(person.speak)")
-        person.money = 10
-        
-        var structTest = wrapperStructTest()
-        structTest.s1 = 100
-        
-        var structTest1 = wrapperStructTest1()
-        
-        SomeStructure.name = "tianmaotao"
-        
-        let man = ManPerson()
-        man.nameStr
-        man.money = 10
-        
-        let io = InitObject("tianmaotao")
-        
-        let subIO = SubInitObject("tianmaotao")
-        subIO.printDesc()
-        subIO.update(name: "tmt", sex: "nan", age: 18)
-        let desc = subIO.desc
-        
-        var p1 = Point(with: 1, with: 1)
-        
-        let car = Car<String>()
-        car.fire()
-    }
-}
-
-struct Point {
-    var x: Float = 0
-    var y: Float = 0
-    
-    func func1(_ newX: Float, _ newY: Float) {
-//        x = newX error
-//        y = newY error
-    }
-    mutating func func2(_ newX: Float, _ newY: Float) {
-        x = newX
-        y = newY
-    }
-    mutating func func3(_ newX: Float, _ newY: Float) {
-        self = Point(x: newX, y: newY)
-    }
-}
-struct Size {
-    var width: Float = 0
-    var height: Float = 0
-}
-struct Rect {
-    var point = Point()
-    var size = Size()
-    var center: Point {
-        get {
-            let centerX = point.x + size.width / 2
-            let centerY = point.y + size.height / 2
-            return Point(x: centerX, y: centerY)
-        }
-        set(newCenter) {
-            point.x = newCenter.x - size.width / 2
-            point.y = newCenter.y - size.height / 2
-        }
-    }
-}
-
-/// 属性包装
-@propertyWrapper
-struct WrapperStruct {
-    private var number: Int = 0
-    var wrappedValue: Int { // 必须包含wrappedValue这个计算属性
-        get { return number }
-        set { number = min(newValue, 12) }
-    }
-}
-struct wrapperStructTest {
-    @WrapperStruct var s1: Int //
-    @WrapperStruct var s2: Int
-}
-
-@propertyWrapper
-struct SmallNumber {
-    private var numMax: Int
-    private var num: Int
-    var wrappedValue: Int {
-        get { return num }
-        set { num = min(numMax, newValue) }
-    }
-    init() {
-        numMax = 12
-        num = 0
-    }
-    init(wrappedValue: Int) {
-        numMax = 12
-        num = min(wrappedValue, numMax)
-    }
-    init(wrappedValue: Int, numMax: Int) {
-        self.numMax = numMax
-        num = min(wrappedValue, numMax)
-    }
-}
-struct wrapperStructTest1 {
-    @SmallNumber var s1: Int = 1
-}
-struct wrapperStructTest2 {
-    @SmallNumber(wrappedValue: 20, numMax: 12) var s1: Int
-}
-
-// 类型属性
-struct SomeStructure {
-    static var name: String = "tianmaotao"
-    static var nameStr: String {
-        get { return name }
-        set { name = newValue }
-    }
-}
+import Foundation
 
 open class Person {
     public final var name: String = ""
@@ -149,7 +13,7 @@ open class Person {
     var point: Point = Point()
     lazy var speak = ["hello!"]
     lazy var lazyNunber = 100
-    fileprivate var nameStr: String {
+    var nameStr: String {
         name
     }
     var nameStr1: String {
@@ -157,7 +21,7 @@ open class Person {
             return name
         }
     }
-    fileprivate var money: Int = 0 {
+    var money: Int = 0 {
         willSet(newMoney) {
             print("person：newMoney:\(newMoney)");
         }
@@ -182,7 +46,7 @@ open class Person {
 }
 
 public class ManPerson: Person {
-    var book: Book? 
+    var book: Book?
     override var nameStr: String {
         get {
             return "man" + super.nameStr

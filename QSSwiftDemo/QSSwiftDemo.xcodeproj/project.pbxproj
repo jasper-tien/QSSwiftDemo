@@ -19,8 +19,10 @@
 		8E7601A626C78B75002ADF00 /* QSSwiftDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7601A526C78B75002ADF00 /* QSSwiftDemoTests.swift */; };
 		8E7601B126C78B75002ADF00 /* QSSwiftDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7601B026C78B75002ADF00 /* QSSwiftDemoUITests.swift */; };
 		8E997FD827F980D200D330C3 /* QSBaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E997FD727F980D200D330C3 /* QSBaseTest.swift */; };
-		8E997FDA27F9840300D330C3 /* QSClaseStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E997FD927F9840300D330C3 /* QSClaseStruct.swift */; };
 		8EABB317280BF4F3001782AE /* QSBaseUIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EABB316280BF4F3001782AE /* QSBaseUIAdapter.swift */; };
+		8ED6433028A3EE22005908C5 /* QSEnumTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */; };
+		8ED6433228A3EE34005908C5 /* QSClassTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6433128A3EE34005908C5 /* QSClassTest.swift */; };
+		8ED6433428A3EE40005908C5 /* QSStructTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6433328A3EE40005908C5 /* QSStructTest.swift */; };
 		8EEF0555289AB6EA00CADD1E /* QSTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF0554289AB6EA00CADD1E /* QSTabController.swift */; };
 		8EEF0559289AB71000CADD1E /* QSTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF0558289AB71000CADD1E /* QSTabBarView.swift */; };
 		8EEF055B289AB72400CADD1E /* QSTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF055A289AB72400CADD1E /* QSTabBarItem.swift */; };
@@ -62,8 +64,10 @@
 		8E7601B026C78B75002ADF00 /* QSSwiftDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSSwiftDemoUITests.swift; sourceTree = "<group>"; };
 		8E7601B226C78B75002ADF00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E997FD727F980D200D330C3 /* QSBaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSBaseTest.swift; sourceTree = "<group>"; };
-		8E997FD927F9840300D330C3 /* QSClaseStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSClaseStruct.swift; sourceTree = "<group>"; };
 		8EABB316280BF4F3001782AE /* QSBaseUIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSBaseUIAdapter.swift; sourceTree = "<group>"; };
+		8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSEnumTest.swift; sourceTree = "<group>"; };
+		8ED6433128A3EE34005908C5 /* QSClassTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSClassTest.swift; sourceTree = "<group>"; };
+		8ED6433328A3EE40005908C5 /* QSStructTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSStructTest.swift; sourceTree = "<group>"; };
 		8EEF0554289AB6EA00CADD1E /* QSTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabController.swift; sourceTree = "<group>"; };
 		8EEF0558289AB71000CADD1E /* QSTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabBarView.swift; sourceTree = "<group>"; };
 		8EEF055A289AB72400CADD1E /* QSTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabBarItem.swift; sourceTree = "<group>"; };
@@ -172,7 +176,9 @@
 			isa = PBXGroup;
 			children = (
 				8E997FD727F980D200D330C3 /* QSBaseTest.swift */,
-				8E997FD927F9840300D330C3 /* QSClaseStruct.swift */,
+				8ED6433128A3EE34005908C5 /* QSClassTest.swift */,
+				8ED6433328A3EE40005908C5 /* QSStructTest.swift */,
+				8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */,
 			);
 			path = study;
 			sourceTree = "<group>";
@@ -319,10 +325,12 @@
 			files = (
 				8EEF055B289AB72400CADD1E /* QSTabBarItem.swift in Sources */,
 				8E76019326C78B74002ADF00 /* Document.swift in Sources */,
+				8ED6433428A3EE40005908C5 /* QSStructTest.swift in Sources */,
+				8ED6433228A3EE34005908C5 /* QSClassTest.swift in Sources */,
 				8E403D082802BF410009A0FF /* QSViewController.swift in Sources */,
-				8E997FDA27F9840300D330C3 /* QSClaseStruct.swift in Sources */,
 				8EEF0555289AB6EA00CADD1E /* QSTabController.swift in Sources */,
 				8E7054D22830D07700C074F9 /* CreationalPattern.swift in Sources */,
+				8ED6433028A3EE22005908C5 /* QSEnumTest.swift in Sources */,
 				8E997FD827F980D200D330C3 /* QSBaseTest.swift in Sources */,
 				8E76019126C78B74002ADF00 /* DocumentViewController.swift in Sources */,
 				8E76018F26C78B74002ADF00 /* DocumentBrowserViewController.swift in Sources */,
