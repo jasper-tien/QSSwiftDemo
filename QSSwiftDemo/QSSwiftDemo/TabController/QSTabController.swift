@@ -47,4 +47,34 @@ protocol QSTabControllerDelegate {
 public class QSTabController : UIViewController {
     var dataSource: QSTabControllerDataSource?
     var delegate: QSTabControllerDelegate?
+    
+    private var forceLoad: Bool = false
+    var isForceLoad: Bool {
+        return forceLoad
+    }
+    private var selectIndex: UInt = 0
+    var selectingIndex: UInt {
+        return selectIndex
+    }
+    var selectViewController: UIViewController?  {
+        return nil
+    }
+    var tabBarView: QSTabBarViewProtocol? {
+        return nil
+    }
+    var pageView: UIScrollView? {
+        return nil
+    }
+    
+    public func reloadData() {
+        
+    }
+    
+    public func scrollTo(_ index: UInt, animated: Bool) {
+        
+    }
+    
+    public func contentViewController(with index: UInt) -> UIViewController? {
+        return nil
+    }
 }
