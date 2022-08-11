@@ -21,6 +21,12 @@ open class Person {
             return name
         }
     }
+    
+    // 属性观察者
+    // 你可以在如下地方添加属性观察者：
+    // 1、你定义的存储属性；
+    // 2、你继承的存储属性；
+    // 3、你继承的计算属性；
     var money: Int = 0 {
         willSet(newMoney) {
             print("person：newMoney:\(newMoney)");

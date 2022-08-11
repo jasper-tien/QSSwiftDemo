@@ -30,6 +30,8 @@ struct Size {
 struct Rect {
     var point = Point()
     var size = Size()
+    
+    // 计算属性
     var center: Point {
         get {
             let centerX = point.x + size.width / 2
@@ -41,9 +43,46 @@ struct Rect {
             point.y = newCenter.y - size.height / 2
         }
     }
+    
+    //简写设置器（setter）声明
+    //如果一个计算属性的设置器没有为将要被设置的值定义一个名字，那么他将被默认命名为 newValue。
+    var maxX: Point {
+        get {
+            let maxX = point.x + size.width
+            let maxY = point.y + size.height
+            return Point(x: maxX, y: maxY)
+        }
+        set {
+            point.x = newValue.x - size.width
+            point.y = newValue.y - size.height
+        }
+    }
+    
+    // 只读计算属性
+    // 一个有读取器但是没有设置器的计算属性就是所谓的只读计算属性
+    var width: Float {
+        get {
+            return size.width
+        }
+    }
+    // 也可以通过去掉 get 关键字和他的大扩号来简化只读计算属性的声明
+    var height: Float {
+        return size.height
+    }
+    
+    // 类型属性
+    // 使用 static 关键字来声明类型属性。
+    // 对于类类型的计算类型属性，你可以使用 class 关键字来允许子类重写父类的实现。
+    static var name = "Rect"
+    static var nameString: String {
+        return name
+    }
 }
 
 /// 属性包装
+/// 属性包装给代码之间添加了一层分离层，它用来管理属性如何存储数据以及代码如何定义属性。
+/// 定义了 wrappedValue 计算属性
+/// @WrapperStruct 修饰的属性类型必须和wrappedValue一致
 @propertyWrapper
 struct WrapperStruct {
     private var number: Int = 0
@@ -55,6 +94,13 @@ struct WrapperStruct {
 struct wrapperStructTest {
     @WrapperStruct var s1: Int //
     @WrapperStruct var s2: Int
+    mutating func test() {
+        print("\(self.s1)"); // 0
+        s1 = 10
+        print("\(self.s1)"); // 10
+        s1  = 30
+        print("\(self.s1)"); // 12
+    }
 }
 
 @propertyWrapper
