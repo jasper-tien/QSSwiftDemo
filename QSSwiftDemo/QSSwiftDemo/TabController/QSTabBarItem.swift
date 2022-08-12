@@ -7,7 +7,13 @@
 
 import Foundation
 
-protocol QSTabBarItemProtocol {
-    
+public protocol QSTabBarItemProtocol {
+    var itemIndex: UInt { get }
+    var itemWidth: Float { get }
+    func config(with index: UInt)
+    func config(with customWidth: Float)
+    func config(with actionBlock: (UInt, UInt) -> Void)
+    func update(with isHighlight: Bool)
+    func setupMaxTextLengthLimit(_ limit: UInt)
 }
 
