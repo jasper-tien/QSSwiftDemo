@@ -28,18 +28,11 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         let enumTest = EnumTest()
         enumTest.test_fire(.west)
         
-        let man: ManPerson = ManPerson()
-        man.book?.number = 10
-        if (man.book?.number = 100) != nil {
-            
-        }
-        if let books = man.book?.number {
-            let booksCount = books + 10
-        }
-        if man.book?.printNumber() != nil {
-            
-        }
+        let classTest = QSClassTest()
+        classTest.test_fire()
         
+        let protocolTest = QSProtocolTest()
+        protocolTest.test_fire()
         
         // Update the style of the UIDocumentBrowserViewController
         // browserUserInterfaceStyle = .dark

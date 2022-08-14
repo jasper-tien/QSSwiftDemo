@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E0EE03928A8CE3E00A083E3 /* QSProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */; };
 		8E403D082802BF410009A0FF /* QSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E403D072802BF410009A0FF /* QSViewController.swift */; };
 		8E7054D22830D07700C074F9 /* CreationalPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7054D12830D07700C074F9 /* CreationalPattern.swift */; };
 		8E76018D26C78B74002ADF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E76018C26C78B74002ADF00 /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSProtocolTest.swift; sourceTree = "<group>"; };
 		8E403D072802BF410009A0FF /* QSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSViewController.swift; sourceTree = "<group>"; };
 		8E7054D12830D07700C074F9 /* CreationalPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationalPattern.swift; sourceTree = "<group>"; };
 		8E76018926C78B74002ADF00 /* QSSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +181,7 @@
 				8ED6433128A3EE34005908C5 /* QSClassTest.swift */,
 				8ED6433328A3EE40005908C5 /* QSStructTest.swift */,
 				8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */,
+				8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */,
 			);
 			path = study;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				8EEF0559289AB71000CADD1E /* QSTabBarView.swift in Sources */,
 				8EABB317280BF4F3001782AE /* QSBaseUIAdapter.swift in Sources */,
 				8E76018D26C78B74002ADF00 /* AppDelegate.swift in Sources */,
+				8E0EE03928A8CE3E00A083E3 /* QSProtocolTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

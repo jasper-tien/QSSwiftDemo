@@ -7,6 +7,27 @@
 
 import Foundation
 
+public protocol QSTestProtocol {
+    func test_fire() -> Void
+}
+
+class QSClassTest: QSTestProtocol {
+    public func test_fire() {
+        let man: ManPerson = ManPerson()
+        man.book?.number = 10
+        man.money = 10
+        if (man.book?.number = 100) != nil {
+            
+        }
+        if let books = man.book?.number {
+            let booksCount = books + 10
+        }
+        if man.book?.printNumber() != nil {
+            
+        }
+    }
+}
+
 open class Person {
     public final var name: String = ""
     public var sex: String = ""

@@ -26,7 +26,7 @@ enum PGCVCStatus {
 protocol QSTabControllerDataSource {
     
     func number(in qsController: QSTabController) -> Int
-    func tabController(_ qsController: QSTabController, barItemView Index: UInt) -> QSTabBarItemProtocol
+    func tabController(_ qsController: QSTabController, barItemView Index: UInt) -> UIView & QSTabBarItemProtocol
     func tabController(_ qsController: QSTabController, contentController index: UInt) -> UIViewController
     
 }
@@ -120,15 +120,15 @@ extension QSTabController : UIScrollViewDelegate, QSTabBarDelegate {
         return 0
     }
     
-    public func tabBarView(_ tabBarView: UIView, willSelectItem originIdx: UInt, targetIdx: UInt) {
+    public func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, willSelectItem originIdx: UInt, targetIdx: UInt) {
         
     }
     
-    public func tabBarView(_ tabBarView: UIView, didSelectItem originIdx: UInt, targetIdx: UInt) {
+    public func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, didSelectItem originIdx: UInt, targetIdx: UInt) {
         
     }
     
-    public func tabBarView(_ tabBarView: UIView, didSelectItemAgain originIdx: UInt, targetIdx: UInt) {
+    public func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, didSelectItemAgain originIdx: UInt, targetIdx: UInt) {
         
     }
     

@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct StructTest : QSTestProtocol {
+    func test_fire() {
+        
+    }
+}
+
 struct Point {
     var x: Float = 0
     var y: Float = 0
@@ -91,6 +97,9 @@ struct WrapperStruct {
         set { number = min(newValue, 12) }
     }
 }
+
+// 结构体和枚举是值类型。默认情况下，值类型属性不能被自身的实例方法修改。
+// 在异变方法里可以指定自身
 struct wrapperStructTest {
     @WrapperStruct var s1: Int //
     @WrapperStruct var s2: Int
