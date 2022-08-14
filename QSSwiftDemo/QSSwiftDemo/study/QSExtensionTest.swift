@@ -53,6 +53,7 @@ extension QSCity {
     }
 }
 
+// 扩展已有类，实现遵循的协议功能
 extension QSCity: QSCityProtocol {
     func travel() {
         print("travel")
@@ -63,6 +64,16 @@ extension QSCity: QSCityProtocol {
     }
 }
 
+// 有条件地遵循协议
+extension Array where Element: QSCityProtocol {
+    func descPrint() {
+        _ = self.map { (action: QSCityProtocol) in
+            action.action()
+        }
+    }
+}
+
+// 扩展协议，提供默认实现
 extension QSCityProtocol {
     func action() {
         print("action")

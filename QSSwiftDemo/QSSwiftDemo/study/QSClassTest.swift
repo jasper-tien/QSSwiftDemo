@@ -164,38 +164,6 @@ class SubInitObject : InitObject {
 }
 
 
-extension SubInitObject {
-    var desc: String {
-        get {
-            "name:\(name) sex:\(sex) age:\(age)"
-        }
-    }
-    func printDesc() {
-        print("name:\(name) sex:\(sex) age:\(age)")
-    }
-}
-
-extension SubInitObject {
-    convenience init(name: String, sex: String, age: Int) {
-        self.init(name)
-    }
-    func update(name: String, sex: String, age: Int) {
-        self.name = name
-        self.sex = sex
-        self.age = age
-    }
-}
-
-extension Point {
-    init(with x: Float, with y: Float) {
-        self.init(x: x, y: y)
-    }
-    func printDesc() {
-        print("x:\(x) y:\(y)")
-    }
-}
-
-
 ///// 泛型
 class Car<Element> {
     var items: [Element]?
