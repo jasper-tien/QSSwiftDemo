@@ -22,17 +22,20 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         self.addChild(qsVC)
         view.addSubview(qsVC.view)
         
-        let baseTest = QSBaseTest()
-        baseTest.test_fire()
+//        let baseTest = QSBaseTest()
+//        baseTest.test_fire()
+//
+//        let enumTest = EnumTest()
+//        enumTest.test_fire(.west)
+//
+//        let classTest = QSClassTest()
+//        classTest.test_fire()
+//
+//        let protocolTest = QSProtocolTest()
+//        protocolTest.test_fire()
         
-        let enumTest = EnumTest()
-        enumTest.test_fire(.west)
-        
-        let classTest = QSClassTest()
-        classTest.test_fire()
-        
-        let protocolTest = QSProtocolTest()
-        protocolTest.test_fire()
+        let extensionTest = QSExtensionTest()
+        extensionTest.test_fire()
         
         // Update the style of the UIDocumentBrowserViewController
         // browserUserInterfaceStyle = .dark

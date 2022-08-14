@@ -25,6 +25,9 @@ class QSClassTest: QSTestProtocol {
         if man.book?.printNumber() != nil {
             
         }
+        
+        let media = QSMediaTest()
+        media.test_print()
     }
 }
 
@@ -102,6 +105,7 @@ class Book: NSObject {
 }
 
 
+// 初始化器
 class InitObject {
     let style: String
     var name: String
@@ -191,83 +195,6 @@ extension Point {
     }
 }
 
-protocol Animal {
-    func printDesc()
-}
-
-protocol Cat {
-    static var style: String {set get}
-    var name: String {set get}
-}
-
-protocol CatProtocol: Cat {
-    init(name: String)
-    static func printStyle()
-    func desc() -> String
-    func descString(str: String)
-}
-
-class OrangeCat: CatProtocol {
-    static var style: String = "OrangeCat"
-    var name: String
-    
-    required init(name: String) {
-        self.name = name
-    }
-    
-    class func printStyle() {
-        print("\(style)")
-    }
-    
-    func desc() -> String {
-        return "\(OrangeCat.style): \(name)"
-    }
-}
-
-class Pet {
-    var cat: CatProtocol
-    var list: [CatProtocol]
-    
-    init(cat: CatProtocol) {
-        self.cat = cat
-        list = Array()
-    }
-    
-    func getCat() -> CatProtocol {
-        return  cat
-    }
-    func desc() {
-        print("\(cat.desc())")
-    }
-    func printDesc(target: Animal & Cat) {
-        target.printDesc()
-        print("\(target.name)")
-    }
-    
-    func updateCat(cat: CatProtocol) {
-        if cat is CatProtocol {
-            self.cat = cat
-        }
-        
-        let objects: [AnyObject] = [
-            OrangeCat(name: "xiaoming"),
-            OrangeCat(name: "xiaohua"),
-        ]
-        for objc in objects {
-            if let objectWithArea = objc as? CatProtocol {
-                print("\(objectWithArea.name)")
-            }
-        }
-    }
-
-}
-
-extension CatProtocol {
-    func descString(str: String) {
-        print("\(str)")
-    }
-}
-
 
 ///// 泛型
 class Car<Element> {
@@ -346,5 +273,82 @@ struct QSStack: Container {
     }
     subscript(i: Int) -> Int {
         return list[i]
+    }
+}
+
+
+// 类型转换
+// 类型检查：使用类型检查操作符 （ is ）来检查一个实例是否属于一个特定的子类。如果实例是该子类类型，类型检查操作符返回 true ，否则返回 false 。
+// 向下类型转换：使用条件形式的类型转换操作符 （ as? ）。返回一个可选项，如果向下转换失败，可选值为 nil
+// 使用强制形式的类型转换操作符（ as! ）。当你向下转换至一个错误的类型时，强制形式的类型转换操作符会触发一个运行错误。
+class MediaItem {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+}
+
+class Movie: MediaItem {
+    var director: String
+    init(name: String, director: String) {
+        self.director = director
+        super.init(name: name)
+    }
+}
+
+class Song: MediaItem {
+    var artist: String
+    init(name: String, artist: String) {
+        self.artist = artist
+        super.init(name: name)
+    }
+}
+
+class QSMediaTest {
+    var list: [Any] = [
+        Movie(name: "Movie1", director: "tmt"),
+        Movie(name: "Movie2", director: "tmt"),
+        Song(name: "Song1", artist: "tmt"),
+        Song(name: "Song2", artist: "tmt"),
+        10,
+        (100, 100)
+    ]
+    
+    func test_print() {
+        var movieCount = 0
+        var songCount = 0
+        for item in list {
+            if item is Movie {
+                movieCount += 1
+            }
+            if item is Song {
+                songCount += 1
+            }
+        }
+        print("movie count:\(movieCount) song count:\(songCount)")
+        
+        for item in list {
+            if let movie = item as? Movie {
+                print("movie name:\(movie.name)")
+            }
+            if let song = item as? Song {
+                print("song:\(song.name)")
+            }
+        }
+        
+        for item in list {
+            switch item {
+            case let movie as Movie:
+                print("movie name:\(movie.name)")
+            case let song as Song:
+                print("song:\(song.name)")
+            case let intNum as Int where intNum == 10:
+                print("\(intNum)")
+            case let (x, y) as (Int, Int) where x > 0 && y > 0:
+                print("x:\(x), y:\(y)")
+            default:
+                print("default")
+            }
+        }
     }
 }

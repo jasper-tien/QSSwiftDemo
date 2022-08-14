@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E0EE03928A8CE3E00A083E3 /* QSProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */; };
+		8E0EE03B28A93F1900A083E3 /* QSExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */; };
 		8E403D082802BF410009A0FF /* QSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E403D072802BF410009A0FF /* QSViewController.swift */; };
 		8E7054D22830D07700C074F9 /* CreationalPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7054D12830D07700C074F9 /* CreationalPattern.swift */; };
 		8E76018D26C78B74002ADF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E76018C26C78B74002ADF00 /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSProtocolTest.swift; sourceTree = "<group>"; };
+		8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSExtensionTest.swift; sourceTree = "<group>"; };
 		8E403D072802BF410009A0FF /* QSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSViewController.swift; sourceTree = "<group>"; };
 		8E7054D12830D07700C074F9 /* CreationalPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationalPattern.swift; sourceTree = "<group>"; };
 		8E76018926C78B74002ADF00 /* QSSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +184,7 @@
 				8ED6433328A3EE40005908C5 /* QSStructTest.swift */,
 				8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */,
 				8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */,
+				8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */,
 			);
 			path = study;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EEF055B289AB72400CADD1E /* QSTabBarItem.swift in Sources */,
+				8E0EE03B28A93F1900A083E3 /* QSExtensionTest.swift in Sources */,
 				8E76019326C78B74002ADF00 /* Document.swift in Sources */,
 				8ED6433428A3EE40005908C5 /* QSStructTest.swift in Sources */,
 				8ED6433228A3EE34005908C5 /* QSClassTest.swift in Sources */,
