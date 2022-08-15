@@ -23,6 +23,7 @@ public protocol QSTabBarViewProtocol {
  
 public protocol QSTabBarDelegate : AnyObject {
     func numbersInQSTabBarView(_ tabBarView: UIView) -> UInt
+    func tabBarView(_ tabBarView: UIView, index: UInt) -> UIView & QSTabBarItemProtocol
     func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, willSelectItem originIdx: UInt, targetIdx: UInt)
     func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, didSelectItem originIdx: UInt, targetIdx: UInt)
     func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, didSelectItemAgain originIdx: UInt, targetIdx: UInt)
