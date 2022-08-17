@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 public protocol QSTabBarItemProtocol {
-    var itemIndex: UInt { get }
+    var itemIndex: Int { get }
     var itemWidth: CGFloat { get }
-    func config(with index: UInt)
+    func config(with index: Int)
     func config(with customWidth: CGFloat)
-    func config(with actionBlock: @escaping (UInt, UInt) -> Void)
+    func config(with actionBlock: @escaping (Int, Int) -> Void)
     func update(with isHighlight: Bool)
     func setupMaxTextLengthLimit(_ limit: UInt)
 }
@@ -27,12 +27,12 @@ class QSTabBarItemElement {
 }
 
 public class QSTabBarItem: UIView {
-    private var actionBlock: ((UInt, UInt) -> Void)?
+    private var actionBlock: ((Int, Int) -> Void)?
     private var isHighlight: Bool = false
     private var customWidth: CGFloat = 0
     private var hasWidth = false
     private var autoWidth: CGFloat = 0
-    private var index: UInt = 0
+    private var index: Int = 0
     private var limit: UInt = 0
     private lazy var titleElement = QSTabBarItemElement()
     private lazy var subtitleElement = QSTabBarItemElement()
@@ -44,8 +44,18 @@ public class QSTabBarItem: UIView {
         return false
     }
     
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupSubviews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public override func layoutSubviews() {
         super.layoutSubviews()
+        contentLabel.frame = self.bounds
     }
     
     public func config(title: String?, subtitle: String?) {
@@ -63,6 +73,7 @@ public class QSTabBarItem: UIView {
         } else {
             subtitleAttriStr = nil
         }
+        contentLabel.attributedText = contentTitleAttributedString()
         self.setNeedsLayout()
     }
     
@@ -114,7 +125,7 @@ public class QSTabBarItem: UIView {
         self.addGestureRecognizer(doubleTapGesture)
         
         contentLabel.textAlignment = .center
-        self .addSubview(contentLabel)
+        self.addSubview(contentLabel)
     }
     
     private func currentTextColor(isTitle: Bool) -> UIColor {
@@ -181,14 +192,14 @@ public class QSTabBarItem: UIView {
 }
 
 extension QSTabBarItem : QSTabBarItemProtocol {
-    public var itemIndex: UInt {
+    public var itemIndex: Int {
         index
     }
     public var itemWidth: CGFloat {
         contentTitleWidth()
     }
     
-    public func config(with index: UInt) {
+    public func config(with index: Int) {
         self.index = index
     }
     
@@ -196,12 +207,13 @@ extension QSTabBarItem : QSTabBarItemProtocol {
         self.customWidth = customWidth
     }
     
-    public func config(with actionBlock: @escaping (UInt, UInt) -> Void) {
+    public func config(with actionBlock: @escaping (Int, Int) -> Void) {
         self.actionBlock = actionBlock;
     }
     
     public func update(with isHighlight: Bool) {
         self.isHighlight = isHighlight
+        self.setNeedsLayout()
     }
     
     public func setupMaxTextLengthLimit(_ limit: UInt) {

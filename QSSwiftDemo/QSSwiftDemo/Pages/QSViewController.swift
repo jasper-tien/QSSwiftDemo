@@ -74,7 +74,14 @@ class QSViewController: UIViewController, UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vm = viewModels[indexPath.row]
         print("我是\(vm.name)，我今年\(vm.age)岁了，我是\(vm.sex)的")
-        createAVPlayer()
+        switch indexPath.row {
+        case 0:
+            jumpTabTestPage()
+        case 1:
+            openAVPlayer()
+        default:
+            print("")
+        }
     }
     
     func createAVPlayer() {
@@ -91,6 +98,16 @@ class QSViewController: UIViewController, UITableViewDataSource, UITableViewDele
         playerVC.view.frame = CGRect(x: 0, y: self.view.frame.height - 200, width: self.view.frame.width, height: 200)
         self.playerVC = playerVC
         view.addSubview(playerVC.view)
+    }
+    
+    // MARK: events
+    private func openAVPlayer() {
+        createAVPlayer()
+    }
+    
+    private func jumpTabTestPage() {
+        let tabVC = QSTabTestController()
+        self.present(tabVC, animated: true)
     }
 }
 
