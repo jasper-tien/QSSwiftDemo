@@ -299,11 +299,8 @@ extension QSTabController {
     }
     
     private func loadController(with index: Int) -> UIViewController? {
-        if index < self.numbersOfViewController && self.dataSource != nil {
-            let vc = self.dataSource?.tabController(self, contentController: index)
-            if vc != nil {
-                insertController(controller: vc!, to: index)
-            }
+        if let vc = self.dataSource?.tabController(self, contentController: index), index < self.numbersOfViewController && self.dataSource != nil {
+            insertController(controller: vc, to: index)
             return vc
         }
         return nil
@@ -312,7 +309,13 @@ extension QSTabController {
     private func insertController(controller: UIViewController, to index: Int) {
         if index >= 0 && index < self.numbersOfViewController {
             self.loadedViewControllers[index] = controller
-            self.pageView .addSubview(controller.view)
+            controller.view.frame = CGRect(
+                x: pageView.frame.width * CGFloat(index),
+                y: 0,
+                width: pageView.frame.width,
+                height: pageView.frame.height)
+            controller.view.autoresizingMask = [.flexibleWidth, .flexibleHeight];
+            self.pageView.addSubview(controller.view)
         }
     }
     

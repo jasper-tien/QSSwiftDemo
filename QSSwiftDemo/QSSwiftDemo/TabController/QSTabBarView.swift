@@ -111,7 +111,7 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
         contentScrollView.showsHorizontalScrollIndicator = false
         self.addSubview(contentScrollView)
         
-        selectIndicatorView.backgroundColor = UIColor.clear
+        selectIndicatorView.backgroundColor = UIColor.systemPink
         self.addSubview(selectIndicatorView)
     }
     
