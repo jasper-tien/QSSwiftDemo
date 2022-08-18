@@ -75,18 +75,18 @@ class QSTabTestController: UIViewController, QSTabControllerDataSource, QSTabCon
 extension QSTabTestController {
     
     // MARK: QSTabControllerDataSource
-    func number(in qsController: QSTabController) -> Int {
+    func number(in tabController: QSTabController) -> Int {
         return tabModels.count
     }
     
-    func tabController(_ qsController: QSTabController, barItemView index: Int) -> UIView & QSTabBarItemProtocol {
+    func tabController(_ tabController: QSTabController, barItemView index: Int) -> UIView & QSTabBarItemProtocol {
         if index >= tabModels.count {
             return QSTabBarItem()
         }
         return tabModels[Int(index)].tabBarItem
     }
     
-    func tabController(_ qsController: QSTabController, contentController index: Int) -> UIViewController {
+    func tabController(_ tabController: QSTabController, contentController index: Int) -> UIViewController {
         if index >= tabModels.count {
             return UIViewController()
         }
@@ -94,44 +94,44 @@ extension QSTabTestController {
     }
     
     // MARK: QSTabControllerDelegate
-    func defaultSelectIndex(in qsController: QSTabController) -> Int {
+    func defaultSelectIndex(in tabController: QSTabController) -> Int {
         return 0
     }
-    func indicatorHidden(in qsController: QSTabController) -> Bool {
+    func indicatorHidden(in tabController: QSTabController) -> Bool {
         return false
     }
     
     // Variable height & width support
     
-    func heightForTabBarView(in qsController: QSTabController) -> CGFloat {
+    func heightForTabBarView(in tabController: QSTabController) -> CGFloat {
         return 44
     }
-    func tabBarItemSpacing(in qsController: QSTabController) -> CGFloat {
+    func tabBarItemSpacing(in tabController: QSTabController) -> CGFloat {
         10
     }
-    func indicatorHeight(in qsController: QSTabController) -> CGFloat {
+    func indicatorHeight(in tabController: QSTabController) -> CGFloat {
         return 5
     }
-    func tabBarViewInset(in qsController: QSTabController) -> UIEdgeInsets {
+    func tabBarViewInset(in tabController: QSTabController) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
-    func tabBarViewContentInset(in qsController: QSTabController) -> UIEdgeInsets {
+    func tabBarViewContentInset(in tabController: QSTabController) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
-    func tabController(_ qsController: QSTabController, willSelectTab index: Int, type: QSTabSelectType) {
+    func tabController(_ tabController: QSTabController, willSelectTab index: Int, type: QSTabSelectType) {
         
     }
-    func tabController(_ qsController: QSTabController, didSelectTab index: Int, type: QSTabSelectType) {
+    func tabController(_ tabController: QSTabController, didSelectTab index: Int, type: QSTabSelectType) {
         
     }
-    func tabController(_ qsController: QSTabController, didSelectAgainTab index: Int, type: QSTabSelectType) {
+    func tabController(_ tabController: QSTabController, didSelectAgainTab index: Int, type: QSTabSelectType) {
         
     }
-    func tabController(_ qsController: QSTabController, willDeselectTab index: Int, type: QSTabSelectType) {
+    func tabController(_ tabController: QSTabController, willDeselectTab index: Int, type: QSTabSelectType) {
         
     }
-    func tabController(_ qsController: QSTabController, didDeselectTab index: Int, type: QSTabSelectType) {
+    func tabController(_ tabController: QSTabController, didDeselectTab index: Int, type: QSTabSelectType) {
         
     }
     

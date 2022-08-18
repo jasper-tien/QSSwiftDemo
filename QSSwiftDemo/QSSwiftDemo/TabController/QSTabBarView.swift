@@ -31,17 +31,19 @@ public protocol QSTabBarDelegate : AnyObject {
 }
 
 public class QSTabBarView : UIView, QSTabBarViewProtocol {
-    weak private var delegate: QSTabBarDelegate?
+    public static let tabBarAnimatedDuration = 0.25
+    private weak var delegate: QSTabBarDelegate?
     private var selectIndex: Int = 0
     private lazy var itemViews: [UIView & QSTabBarItemProtocol] = []
-    public static let tabBarAnimatedDuration = 0.25
     
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-        contentScrollView.frame = self.bounds
-        updateItemsLayout()
-        updateSelectIndicatorLayout()
-    }
+    public var indicatorHidden: Bool = false
+    public var indicatorAnimated: Bool = true
+    public var indicatorHeight: CGFloat = 5
+    public var itemSpacing: CGFloat = 0
+    public lazy var selectIndicatorView: UIView = UIView()
+    public lazy var contentScrollView: UIScrollView = UIScrollView()
+    
+    // MARK: init
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,56 +54,13 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //  MARK: QSTabBarViewProtocol
-    public var indicatorHidden: Bool = false
-    public var indicatorAnimated: Bool = true
-    public var indicatorHeight: CGFloat = 5
-    public var itemSpacing: CGFloat = 0
-    public lazy var selectIndicatorView: UIView = UIView()
-    public lazy var contentScrollView: UIScrollView = UIScrollView()
+    // MARK: override
     
-    public func reloadData() {
-        resetItemViews()
-        createAndCongigItemViews()
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        contentScrollView.frame = self.bounds
         updateItemsLayout()
         updateSelectIndicatorLayout()
-    }
-    
-    public func scroll(to index: Int, animated: Bool) {
-        self.switchItem(with: index, animated: animated, completion: nil)
-    }
-    
-    public func configDelegate(_ delegate: QSTabBarDelegate) {
-        self.delegate = delegate
-    }
-    
-    public func update(with progress: CGFloat, relativeProgress: CGFloat, leftIndex: Int, rightIndex: Int) {
-        if progress.isNaN || relativeProgress.isNaN || leftIndex < 0 || rightIndex < 0 {
-            return
-        }
-        
-        let leftView: (UIView & QSTabBarItemProtocol)? = fetchTabBarItem(with: Int(leftIndex))
-        let rightView: (UIView & QSTabBarItemProtocol)? = fetchTabBarItem(with: Int(rightIndex))
-        if leftView == nil || rightView == nil {
-            return
-        }
-        
-        let leftViewPointX = leftView!.frame.minX
-        let rightViewPointX = rightView!.frame.minX
-        let leftViewWidth = leftView!.frame.width
-        let rightViewWidth = rightView!.frame.width
-        
-        var frame = selectIndicatorView.frame
-        frame.origin.x = leftViewPointX + (rightViewPointX - leftViewPointX) * relativeProgress
-        frame.size.width = leftViewWidth + (rightViewWidth - leftViewWidth) * relativeProgress;
-        selectIndicatorView.frame = frame
-        
-        if contentScrollView.isScrollEnabled {
-            let itemCount: CGFloat = CGFloat(itemViews.count)
-            let offsetProgress = progress * itemCount / (itemCount - 1);
-            let x = (contentScrollView.contentSize.width - contentScrollView.frame.width) * offsetProgress
-            contentScrollView.contentOffset = CGPoint(x: x, y: 0)
-        }
     }
     
     // MARK: private
@@ -115,15 +74,6 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
         self.addSubview(selectIndicatorView)
     }
     
-    private func resetItemViews() {
-        for itemView in itemViews {
-            if itemView.superview != nil {
-                itemView.removeFromSuperview()
-            }
-        }
-        itemViews.removeAll()
-    }
-    
     private func createAndCongigItemViews() {
         if delegate == nil {
             return
@@ -133,7 +83,7 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
         if itemNum == 0 {
             return
         }
-
+        
         for index in 0..<itemNum {
             let itemView = delegate?.tabBarView(self, index: index) ?? QSTabBarItem()
             itemViews.append(itemView)
@@ -200,13 +150,6 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
         contentScrollView.contentSize = CGSize(width: contentSizeWidth, height: contentScrollView.frame.height)
     }
     
-    private func fetchTabBarItem(with index: Int) -> (UIView & QSTabBarItemProtocol)? {
-        if index >= 0 && !(itemViews.isEmpty) && index < itemViews.count {
-            return itemViews[Int(index)]
-        }
-        return nil
-    }
-    
     private func updateItemViewHighlight(with index: Int) {
         if itemViews.count == 0 { return }
         for (idx, itemView) in itemViews.enumerated() {
@@ -216,6 +159,22 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
                 itemView.update(with: false)
             }
         }
+    }
+    
+    private func fetchTabBarItem(with index: Int) -> (UIView & QSTabBarItemProtocol)? {
+        if index >= 0 && !(itemViews.isEmpty) && index < itemViews.count {
+            return itemViews[Int(index)]
+        }
+        return nil
+    }
+    
+    private func resetItemViews() {
+        for itemView in itemViews {
+            if itemView.superview != nil {
+                itemView.removeFromSuperview()
+            }
+        }
+        itemViews.removeAll()
     }
     
     // MARK: action
@@ -230,5 +189,52 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
     private func itemDoubleClickAction(with index: Int) {
         if self.selectIndex != index { return }
         delegate?.tabBarView(self, didSelectItemAgain: index, targetIdx: index)
+    }
+}
+
+extension QSTabBarView {
+    
+    public func reloadData() {
+        resetItemViews()
+        createAndCongigItemViews()
+        updateItemsLayout()
+        updateSelectIndicatorLayout()
+    }
+    
+    public func scroll(to index: Int, animated: Bool) {
+        self.switchItem(with: index, animated: animated, completion: nil)
+    }
+    
+    public func configDelegate(_ delegate: QSTabBarDelegate) {
+        self.delegate = delegate
+    }
+    
+    public func update(with progress: CGFloat, relativeProgress: CGFloat, leftIndex: Int, rightIndex: Int) {
+        if progress.isNaN || relativeProgress.isNaN || leftIndex < 0 || rightIndex < 0 {
+            return
+        }
+        
+        let leftView: (UIView & QSTabBarItemProtocol)? = fetchTabBarItem(with: Int(leftIndex))
+        let rightView: (UIView & QSTabBarItemProtocol)? = fetchTabBarItem(with: Int(rightIndex))
+        if leftView == nil || rightView == nil {
+            return
+        }
+        
+        let leftViewPointX = leftView!.frame.minX
+        let rightViewPointX = rightView!.frame.minX
+        let leftViewWidth = leftView!.frame.width
+        let rightViewWidth = rightView!.frame.width
+        
+        var frame = selectIndicatorView.frame
+        frame.origin.x = leftViewPointX + (rightViewPointX - leftViewPointX) * relativeProgress
+        frame.size.width = leftViewWidth + (rightViewWidth - leftViewWidth) * relativeProgress;
+        selectIndicatorView.frame = frame
+        
+        if contentScrollView.isScrollEnabled {
+            let itemCount: CGFloat = CGFloat(itemViews.count)
+            let offsetProgress = progress * itemCount / (itemCount - 1);
+            let x = (contentScrollView.contentSize.width - contentScrollView.frame.width) * offsetProgress
+            contentScrollView.contentOffset = CGPoint(x: x, y: 0)
+        }
     }
 }

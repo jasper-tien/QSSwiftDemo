@@ -18,7 +18,7 @@ public protocol QSTabBarItemProtocol {
     func setupMaxTextLengthLimit(_ limit: UInt)
 }
 
-class QSTabBarItemElement {
+private class QSTabBarItemElement {
     var font: UIFont?
     var titleColor: UIColor?
     var titleNightColor: UIColor?
@@ -34,16 +34,17 @@ public class QSTabBarItem: UIView {
     private var autoWidth: CGFloat = 0
     private var index: Int = 0
     private var limit: UInt = 0
-    private lazy var titleElement = QSTabBarItemElement()
-    private lazy var subtitleElement = QSTabBarItemElement()
     private var titleAttriStr: NSMutableAttributedString?
     private var subtitleAttriStr: NSMutableAttributedString?
+    private lazy var titleElement = QSTabBarItemElement()
+    private lazy var subtitleElement = QSTabBarItemElement()
     private lazy var contentLabel = UILabel()
     private var disableTheme = false
     private var isDarkTheme: Bool {
         return false
     }
     
+    // MARK: init
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setupSubviews()
@@ -53,11 +54,91 @@ public class QSTabBarItem: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: override
+    
     public override func layoutSubviews() {
         super.layoutSubviews()
         contentLabel.frame = self.bounds
     }
     
+    // MARK: private
+    
+    private func setupSubviews() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickAction(_:)))
+        self.addGestureRecognizer(tapGesture)
+        
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(clickAction(_:)))
+        doubleTapGesture.numberOfTapsRequired = 2
+        self.addGestureRecognizer(doubleTapGesture)
+        
+        contentLabel.textAlignment = .center
+        self.addSubview(contentLabel)
+    }
+    
+    private func contentTitleAttributedString() -> NSMutableAttributedString {
+        let attributedTitle = NSMutableAttributedString()
+        if titleAttriStr != nil {
+            let attributes = [
+                NSAttributedString.Key.font: titleElement.font ?? UIFont.systemFont(ofSize: 13),
+                NSAttributedString.Key.strokeColor: currentTextColor(isTitle: true)
+            ]
+            titleAttriStr!.addAttributes(attributes, range: NSRange(location: 0, length: titleAttriStr!.length))
+            attributedTitle.append(titleAttriStr!)
+        }
+        if subtitleAttriStr != nil {
+            let attributes = [
+                NSAttributedString.Key.font: subtitleElement.font ?? UIFont.systemFont(ofSize: 10),
+                NSAttributedString.Key.strokeColor: currentTextColor(isTitle: false)
+            ]
+            subtitleAttriStr!.addAttributes(attributes, range: NSRange(location: 0, length: subtitleAttriStr!.length))
+            attributedTitle.append(subtitleAttriStr!)
+        }
+        return attributedTitle
+    }
+    
+    private func contentTitleWidth() -> CGFloat {
+        if customWidth > 0 {
+            return customWidth
+        }
+        if hasWidth {
+            return autoWidth
+        }
+        hasWidth = true
+        let attributedText = contentTitleAttributedString()
+        autoWidth = attributedText.boundingRect(with: CGSize(width: 0, height: 20.0), options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil).width
+        return autoWidth
+    }
+    
+    private func currentTextColor(isTitle: Bool) -> UIColor {
+        let textElement = isTitle ? titleElement : subtitleElement;
+        let isValidDarkTheme = isDarkTheme && !disableTheme;
+        if (isHighlight) {
+            if (isValidDarkTheme) {
+                // 高亮夜间模式
+                return textElement.titleSelectNightColor ?? UIColor.systemPink
+            } else {
+                // 高亮白色主题
+                return textElement.titleSelectColor ?? UIColor.systemPink
+            }
+        } else {
+            if (isValidDarkTheme) {
+                // 未选中夜间模式
+                return textElement.titleNightColor ?? UIColor.black
+            } else {
+                // 未选中白色主题
+                return textElement.titleColor ?? UIColor.black
+            }
+        }
+    }
+    
+    // MARK: evnents
+    @objc
+    private func clickAction(_ tap: UITapGestureRecognizer) {
+        self.actionBlock?(itemIndex, (tap.numberOfTapsRequired == 2) ? 2 : 1)
+    }
+}
+
+extension QSTabBarItem {
     public func config(title: String?, subtitle: String?) {
         hasWidth = false
         var hasTitle = false
@@ -114,80 +195,6 @@ public class QSTabBarItem: UIView {
         } else {
             subtitleElement.titleSelectColor = subtitleColor
         }
-    }
-    
-    private func setupSubviews() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickAction(_:)))
-        self.addGestureRecognizer(tapGesture)
-        
-        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(clickAction(_:)))
-        doubleTapGesture.numberOfTapsRequired = 2
-        self.addGestureRecognizer(doubleTapGesture)
-        
-        contentLabel.textAlignment = .center
-        self.addSubview(contentLabel)
-    }
-    
-    private func currentTextColor(isTitle: Bool) -> UIColor {
-        let textElement = isTitle ? titleElement : subtitleElement;
-        let isValidDarkTheme = isDarkTheme && !disableTheme;
-        if (isHighlight) {
-            if (isValidDarkTheme) {
-                // 高亮夜间模式
-                return textElement.titleSelectNightColor ?? UIColor.systemPink
-            } else {
-                // 高亮白色主题
-                return textElement.titleSelectColor ?? UIColor.systemPink
-            }
-        } else {
-            if (isValidDarkTheme) {
-                // 未选中夜间模式
-                return textElement.titleNightColor ?? UIColor.black
-            } else {
-                // 未选中白色主题
-                return textElement.titleColor ?? UIColor.black
-            }
-        }
-    }
-    
-    private func contentTitleAttributedString() -> NSMutableAttributedString {
-        let attributedTitle = NSMutableAttributedString()
-        if titleAttriStr != nil {
-            let attributes = [
-                NSAttributedString.Key.font: titleElement.font ?? UIFont.systemFont(ofSize: 13),
-                NSAttributedString.Key.strokeColor: currentTextColor(isTitle: true)
-            ]
-            titleAttriStr!.addAttributes(attributes, range: NSRange(location: 0, length: titleAttriStr!.length))
-            attributedTitle.append(titleAttriStr!)
-        }
-        if subtitleAttriStr != nil {
-            let attributes = [
-                NSAttributedString.Key.font: subtitleElement.font ?? UIFont.systemFont(ofSize: 10),
-                NSAttributedString.Key.strokeColor: currentTextColor(isTitle: false)
-            ]
-            subtitleAttriStr!.addAttributes(attributes, range: NSRange(location: 0, length: subtitleAttriStr!.length))
-            attributedTitle.append(subtitleAttriStr!)
-        }
-        return attributedTitle
-    }
-    
-    private func contentTitleWidth() -> CGFloat {
-        if customWidth > 0 {
-            return customWidth
-        }
-        if hasWidth {
-            return autoWidth
-        }
-        hasWidth = true
-        let attributedText = contentTitleAttributedString()
-        autoWidth = attributedText.boundingRect(with: CGSize(width: 0, height: 20.0), options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil).width
-        return autoWidth
-    }
-    
-    // MARK: evnents
-    @objc
-    private func clickAction(_ tap: UITapGestureRecognizer) {
-        self.actionBlock?(itemIndex, (tap.numberOfTapsRequired == 2) ? 2 : 1)
     }
 }
 
