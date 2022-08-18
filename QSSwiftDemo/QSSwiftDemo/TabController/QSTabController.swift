@@ -111,6 +111,10 @@ public class QSTabController : UIViewController {
     
     // MARK: override
     
+    public override var shouldAutomaticallyForwardAppearanceMethods: Bool {
+        return false
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
@@ -300,6 +304,7 @@ public class QSTabController : UIViewController {
                 width: pageView.frame.width,
                 height: pageView.frame.height)
             controller.view.autoresizingMask = [.flexibleWidth, .flexibleHeight];
+            self.addChild(controller)
             self.pageView.addSubview(controller.view)
         }
     }
@@ -339,9 +344,9 @@ public class QSTabController : UIViewController {
         switch status {
         case .willAppear:
             vc.beginAppearanceTransition(true, animated: animated)
-        case .didAppear:
-            vc.beginAppearanceTransition(false, animated: animated)
         case .willDisappear:
+            vc.beginAppearanceTransition(false, animated: animated)
+        case .didAppear:
             vc.endAppearanceTransition()
         case .didDisappear:
             vc.endAppearanceTransition()
@@ -421,7 +426,7 @@ extension QSTabController : UIScrollViewDelegate, QSTabBarDelegate {
 
 extension UIViewController {
     private static var pgc_vc_status_key: Bool = false
-    var pgc_vc_status: PGCVCStatus {
+    public var pgc_vc_status: PGCVCStatus {
         get {
             return objc_getAssociatedObject(self, &Self.pgc_vc_status_key) as? PGCVCStatus ?? PGCVCStatus.unknown
         }
