@@ -89,11 +89,11 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
             itemViews.append(itemView)
             contentScrollView.addSubview(itemView)
             
-            itemView.config { index, tapsRequiredNumber in
+            itemView.config { [weak self](index, tapsRequiredNumber) in
                 if tapsRequiredNumber == 1 {
-                    self.itemClickAction(with: index)
+                    self?.itemClickAction(with: index)
                 } else if tapsRequiredNumber == 1 {
-                    self.itemDoubleClickAction(with: index)
+                    self?.itemDoubleClickAction(with: index)
                 }
             }
             
@@ -106,12 +106,10 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
     private func switchItem(with index: Int, animated: Bool, completion: ((Bool) -> Void)?) {
         if selectIndex == index || itemViews.count == 0 { return }
         let switchItmeBlock = { [weak self]() -> Void in
-            if let selfView = self {
-                selfView.selectIndex = index
-                selfView.updateSelectIndicatorLayout()
-                selfView.updateItemViewHighlight(with: index)
-                selfView.updateItemsLayout()
-            }
+            self?.selectIndex = index
+            self?.updateSelectIndicatorLayout()
+            self?.updateItemViewHighlight(with: index)
+            self?.updateItemsLayout()
         }
         if animated {
             UIView.animate(withDuration: QSTabBarView.tabBarAnimatedDuration, animations: {
@@ -181,8 +179,10 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
     private func itemClickAction(with index: Int) {
         let originIdx = self.selectIndex
         delegate?.tabBarView(self, willSelectItem: originIdx, targetIdx: index)
-        switchItem(with: index, animated: indicatorAnimated) { (animted: Bool) -> Void in
-            self.delegate?.tabBarView(self, didSelectItem: originIdx, targetIdx: index)
+        switchItem(with: index, animated: indicatorAnimated) { [weak self](animted: Bool) -> Void in
+            if let weakSelf = self {
+                weakSelf.delegate?.tabBarView(weakSelf, didSelectItem: originIdx, targetIdx: index)
+            }
         }
     }
     

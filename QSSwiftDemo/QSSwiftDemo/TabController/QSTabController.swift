@@ -10,18 +10,18 @@ import UIKit
 import CoreAudio
 
 public enum QSTabSelectType {
-    case QSTabSelectTypeDefault
-    case QSTabSelectTypeTap // 点击tabBar选中
-    case QSTabSelectTypeScroll // 滑动选中
-    case QSTabSelectTypeForce // 手动选中
+    case unknown
+    case click // 点击tabBar选中
+    case scroll // 滑动选中
+    case force // 手动选中
 }
 
 public enum PGCVCStatus: Int {
-    case PGCVCStatusViewUnknown = 0
-    case PGCVCStatusViewWillAppear = 1
-    case PGCVCStatusViewDidAppear = 2
-    case PGCVCStatusViewWillDisappear = 3
-    case PGCVCStatusViewDidDisappear = 4
+    case unknown = 0
+    case willAppear = 1
+    case didAppear = 2
+    case willDisappear = 3
+    case didDisappear = 4
 }
 
 public protocol QSTabControllerDataSource: NSObjectProtocol {
@@ -85,7 +85,7 @@ public class QSTabController : UIViewController {
     private var selectIndex: Int = 0
     private var forceLoad: Bool = false
     private var transition: Bool = false
-    private var tabVCStatus = PGCVCStatus.PGCVCStatusViewUnknown
+    private var tabVCStatus = PGCVCStatus.unknown
     
     // MARK: init
     
@@ -146,26 +146,26 @@ public class QSTabController : UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabVCStatus = PGCVCStatus.PGCVCStatusViewWillAppear
-        updateStatus(status: PGCVCStatus.PGCVCStatusViewWillAppear, controller: self.selectVC, animated: animated)
+        tabVCStatus = .willAppear
+        updateStatus(status: .willAppear, controller: self.selectVC, animated: animated)
     }
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tabVCStatus = PGCVCStatus.PGCVCStatusViewDidAppear
-        updateStatus(status: PGCVCStatus.PGCVCStatusViewDidAppear, controller: self.selectVC, animated: animated)
+        tabVCStatus = .didAppear
+        updateStatus(status: .didAppear, controller: self.selectVC, animated: animated)
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        tabVCStatus = PGCVCStatus.PGCVCStatusViewWillDisappear
-        updateStatus(status: PGCVCStatus.PGCVCStatusViewWillDisappear, controller: self.selectVC, animated: animated)
+        tabVCStatus = .willDisappear
+        updateStatus(status: .willDisappear, controller: self.selectVC, animated: animated)
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        tabVCStatus = PGCVCStatus.PGCVCStatusViewDidDisappear
-        updateStatus(status: PGCVCStatus.PGCVCStatusViewDidDisappear, controller: self.selectVC, animated: animated)
+        tabVCStatus = .didDisappear
+        updateStatus(status: .didDisappear, controller: self.selectVC, animated: animated)
     }
     
     // MARK: private
@@ -218,12 +218,12 @@ public class QSTabController : UIViewController {
         if self.loadedViewControllers.count > 0 {
             for (_, vc) in self.loadedViewControllers {
                 if !ignore && vc === self.selectVC {
-                    self.updateStatus(status: .PGCVCStatusViewWillDisappear, controller: vc, animated: false)
+                    self.updateStatus(status: .willDisappear, controller: vc, animated: false)
                 }
                 vc.view .removeFromSuperview()
                 vc .removeFromParent()
                 if !ignore && vc === self.selectVC {
-                    self.updateStatus(status: .PGCVCStatusViewDidDisappear, controller: vc, animated: false)
+                    self.updateStatus(status: .didDisappear, controller: vc, animated: false)
                 }
             }
         }
@@ -234,7 +234,7 @@ public class QSTabController : UIViewController {
             }
         }
         
-        self.selectTo(index: selectIndex, animated: false, selectType: .QSTabSelectTypeDefault)
+        self.selectTo(index: selectIndex, animated: false, selectType: .unknown)
     }
     
     private func selectTo(index: Int, animated: Bool, selectType: QSTabSelectType) {
@@ -245,10 +245,10 @@ public class QSTabController : UIViewController {
         let lastSelectVC: UIViewController? = self.selectVC
         let selectVC: UIViewController? = loadController(with: index)
         
-        if self.tabVCStatus.rawValue < PGCVCStatus.PGCVCStatusViewWillDisappear.rawValue {
-            updateStatus(status: PGCVCStatus.PGCVCStatusViewWillDisappear, controller: lastSelectVC, animated: false)
-            if self.tabVCStatus.rawValue >= PGCVCStatus.PGCVCStatusViewWillAppear.rawValue {
-                updateStatus(status: PGCVCStatus.PGCVCStatusViewWillAppear, controller: selectVC, animated: false)
+        if self.tabVCStatus.rawValue < PGCVCStatus.willDisappear.rawValue {
+            updateStatus(status: PGCVCStatus.willDisappear, controller: lastSelectVC, animated: false)
+            if self.tabVCStatus.rawValue >= PGCVCStatus.willAppear.rawValue {
+                updateStatus(status: PGCVCStatus.willAppear, controller: selectVC, animated: false)
             }
         }
         
@@ -267,10 +267,10 @@ public class QSTabController : UIViewController {
             [weak self](animated: Bool) -> Void in
             if let selfVC = self {
                 selfVC.transition = false
-                if selfVC.tabVCStatus.rawValue < PGCVCStatus.PGCVCStatusViewDidDisappear.rawValue {
-                    selfVC.updateStatus(status: PGCVCStatus.PGCVCStatusViewDidDisappear, controller: lastSelectVC, animated: animated)
-                    if selfVC.tabVCStatus.rawValue >= PGCVCStatus.PGCVCStatusViewDidAppear.rawValue {
-                        selfVC.updateStatus(status: PGCVCStatus.PGCVCStatusViewDidAppear, controller: selectVC, animated: animated)
+                if selfVC.tabVCStatus.rawValue < PGCVCStatus.didDisappear.rawValue {
+                    selfVC.updateStatus(status: PGCVCStatus.didDisappear, controller: lastSelectVC, animated: animated)
+                    if selfVC.tabVCStatus.rawValue >= PGCVCStatus.didAppear.rawValue {
+                        selfVC.updateStatus(status: PGCVCStatus.didAppear, controller: selectVC, animated: animated)
                     }
                 }
                 selfVC.delegate?.tabController(selfVC, didDeselectTab: oldSelectIndex, type: selectType)
@@ -280,7 +280,11 @@ public class QSTabController : UIViewController {
         
         if animated {
             UIView.animate(withDuration: QSTabController.tabControllerAnimationDuration, animations: {
-                self.transition = true
+                [weak self] () -> Void in
+                if let weakSelf = self {
+                    weakSelf.transition = true
+                    weakSelf.pageView.contentOffset = CGPoint(x: weakSelf.pageView.frame.width * CGFloat(index), y: 0)
+                }
             }, completion: completionBlock)
         } else {
             completionBlock(false)
@@ -333,13 +337,13 @@ public class QSTabController : UIViewController {
         }
         vc.pgc_vc_status = status
         switch status {
-        case .PGCVCStatusViewWillAppear:
+        case .willAppear:
             vc.beginAppearanceTransition(true, animated: animated)
-        case .PGCVCStatusViewDidAppear:
+        case .didAppear:
             vc.beginAppearanceTransition(false, animated: animated)
-        case .PGCVCStatusViewWillDisappear:
+        case .willDisappear:
             vc.endAppearanceTransition()
-        case .PGCVCStatusViewDidDisappear:
+        case .didDisappear:
             vc.endAppearanceTransition()
         default: break
         }
@@ -368,7 +372,7 @@ extension QSTabController {
         if index == self.selectIndex || index >= self.numbersOfViewController {
             return
         }
-        selectTo(index: index, animated: animated, selectType: .QSTabSelectTypeForce)
+        selectTo(index: index, animated: animated, selectType: .force)
         tabBarView.scroll(to: index, animated: animated)
     }
     
@@ -390,7 +394,7 @@ extension QSTabController : UIScrollViewDelegate, QSTabBarDelegate {
         }
         let selectedIndex = Int(scrollView.contentOffset.x / scrollView.bounds.width)
         tabBarView .scroll(to: selectedIndex, animated: false)
-        selectTo(index: selectedIndex, animated: false, selectType: QSTabSelectType.QSTabSelectTypeScroll)
+        selectTo(index: selectedIndex, animated: false, selectType: .scroll)
     }
     
     // MARK: QSTabBarDelegate
@@ -407,11 +411,11 @@ extension QSTabController : UIScrollViewDelegate, QSTabBarDelegate {
     }
     
     public func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, didSelectItem originIdx: Int, targetIdx: Int) {
-        selectTo(index: targetIdx, animated: true, selectType: QSTabSelectType.QSTabSelectTypeTap)
+        selectTo(index: targetIdx, animated: true, selectType: .click)
     }
     
     public func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, didSelectItemAgain originIdx: Int, targetIdx: Int) {
-        delegate?.tabController(self, didSelectAgainTab: targetIdx, type: QSTabSelectType.QSTabSelectTypeTap)
+        delegate?.tabController(self, didSelectAgainTab: targetIdx, type: .click)
     }
 }
 
@@ -419,7 +423,7 @@ extension UIViewController {
     private static var pgc_vc_status_key: Bool = false
     var pgc_vc_status: PGCVCStatus {
         get {
-            return objc_getAssociatedObject(self, &Self.pgc_vc_status_key) as? PGCVCStatus ?? PGCVCStatus.PGCVCStatusViewUnknown
+            return objc_getAssociatedObject(self, &Self.pgc_vc_status_key) as? PGCVCStatus ?? PGCVCStatus.unknown
         }
         set {
             objc_setAssociatedObject(self, &Self.pgc_vc_status_key, newValue, .OBJC_ASSOCIATION_ASSIGN)

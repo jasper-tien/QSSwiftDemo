@@ -80,7 +80,7 @@ public class QSTabBarItem: UIView {
         if titleAttriStr != nil {
             let attributes = [
                 NSAttributedString.Key.font: titleElement.font ?? UIFont.systemFont(ofSize: 13),
-                NSAttributedString.Key.strokeColor: currentTextColor(isTitle: true)
+                NSAttributedString.Key.foregroundColor: currentTextColor(isTitle: true)
             ]
             titleAttriStr!.addAttributes(attributes, range: NSRange(location: 0, length: titleAttriStr!.length))
             attributedTitle.append(titleAttriStr!)
@@ -88,7 +88,7 @@ public class QSTabBarItem: UIView {
         if subtitleAttriStr != nil {
             let attributes = [
                 NSAttributedString.Key.font: subtitleElement.font ?? UIFont.systemFont(ofSize: 10),
-                NSAttributedString.Key.strokeColor: currentTextColor(isTitle: false)
+                NSAttributedString.Key.foregroundColor: currentTextColor(isTitle: false)
             ]
             subtitleAttriStr!.addAttributes(attributes, range: NSRange(location: 0, length: subtitleAttriStr!.length))
             attributedTitle.append(subtitleAttriStr!)
@@ -162,6 +162,7 @@ extension QSTabBarItem {
         hasWidth = false
         titleElement.font = titleFont ?? UIFont.systemFont(ofSize: 13)
         subtitleElement.font = subtitleFont ?? UIFont.systemFont(ofSize: 10)
+        contentLabel.attributedText = contentTitleAttributedString()
         self.setNeedsLayout()
     }
     
@@ -171,6 +172,8 @@ extension QSTabBarItem {
         } else {
             titleElement.titleColor = titleColor
         }
+        contentLabel.attributedText = contentTitleAttributedString()
+        self.setNeedsLayout()
     }
     
     public func config(subtitleColor: UIColor?, isNight:Bool) {
@@ -179,6 +182,8 @@ extension QSTabBarItem {
         } else {
             subtitleElement.titleColor = subtitleColor
         }
+        contentLabel.attributedText = contentTitleAttributedString()
+        self.setNeedsLayout()
     }
     
     public func configHightlight(titleColor: UIColor?, isNight: Bool) {
@@ -187,6 +192,8 @@ extension QSTabBarItem {
         } else {
             titleElement.titleSelectColor = titleColor
         }
+        contentLabel.attributedText = contentTitleAttributedString()
+        self.setNeedsLayout()
     }
     
     public func configHightlight(subtitleColor: UIColor?, isNight: Bool) {
@@ -195,6 +202,8 @@ extension QSTabBarItem {
         } else {
             subtitleElement.titleSelectColor = subtitleColor
         }
+        contentLabel.attributedText = contentTitleAttributedString()
+        self.setNeedsLayout()
     }
 }
 
@@ -220,6 +229,7 @@ extension QSTabBarItem : QSTabBarItemProtocol {
     
     public func update(with isHighlight: Bool) {
         self.isHighlight = isHighlight
+        contentLabel.attributedText = contentTitleAttributedString()
         self.setNeedsLayout()
     }
     
