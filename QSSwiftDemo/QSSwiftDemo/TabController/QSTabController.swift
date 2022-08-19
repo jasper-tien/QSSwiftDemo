@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 import CoreAudio
 
-public enum QSTabSelectType {
+@objc
+public enum QSTabSelectType: Int {
     case unknown
     case click // 点击tabBar选中
     case scroll // 滑动选中
@@ -24,50 +25,52 @@ public enum PGCVCStatus: Int {
     case didDisappear = 4
 }
 
+@objc
 public protocol QSTabControllerDataSource: NSObjectProtocol {
     func number(in tabController: QSTabController) -> Int
     func tabController(_ tabController: QSTabController, barItemView index: Int) -> UIView & QSTabBarItemProtocol
     func tabController(_ tabController: QSTabController, contentController index: Int) -> UIViewController
 }
 
+@objc
 public protocol QSTabControllerDelegate: NSObjectProtocol {
-    func defaultSelectIndex(in tabController: QSTabController) -> Int
-    func indicatorHidden(in tabController: QSTabController) -> Bool
+    @objc optional func defaultSelectIndex(in tabController: QSTabController) -> Int
+    @objc optional func indicatorHidden(in tabController: QSTabController) -> Bool
     
     // Variable height & width support
     
-    func heightForTabBarView(in tabController: QSTabController) -> CGFloat
-    func tabBarItemSpacing(in tabController: QSTabController) -> CGFloat
-    func indicatorHeight(in tabController: QSTabController) -> CGFloat
-    func tabBarViewInset(in tabController: QSTabController) -> UIEdgeInsets
-    func tabBarViewContentInset(in tabController: QSTabController) -> UIEdgeInsets
+    @objc optional func heightForTabBarView(in tabController: QSTabController) -> CGFloat
+    @objc optional func tabBarItemSpacing(in tabController: QSTabController) -> CGFloat
+    @objc optional func indicatorHeight(in tabController: QSTabController) -> CGFloat
+    @objc optional func tabBarViewInset(in tabController: QSTabController) -> UIEdgeInsets
+    @objc optional func tabBarViewContentInset(in tabController: QSTabController) -> UIEdgeInsets
     
     // Switch customization
     
-    func tabController(_ tabController: QSTabController, willSelectTab index: Int, type: QSTabSelectType)
-    func tabController(_ tabController: QSTabController, didSelectTab index: Int, type: QSTabSelectType)
-    func tabController(_ tabController: QSTabController, didSelectAgainTab index: Int, type: QSTabSelectType)
-    func tabController(_ tabController: QSTabController, willDeselectTab index: Int, type: QSTabSelectType)
-    func tabController(_ tabController: QSTabController, didDeselectTab index: Int, type: QSTabSelectType)
+    @objc optional func tabController(_ tabController: QSTabController, willSelectTab index: Int, type: QSTabSelectType)
+    @objc optional func tabController(_ tabController: QSTabController, didSelectTab index: Int, type: QSTabSelectType)
+    @objc optional func tabController(_ tabController: QSTabController, didSelectAgainTab index: Int, type: QSTabSelectType)
+    @objc optional func tabController(_ tabController: QSTabController, willDeselectTab index: Int, type: QSTabSelectType)
+    @objc optional func tabController(_ tabController: QSTabController, didDeselectTab index: Int, type: QSTabSelectType)
 }
 
 public class QSTabController : UIViewController {
-    public weak var dataSource: QSTabControllerDataSource?
-    public weak var delegate: QSTabControllerDelegate?
+    @objc public weak var dataSource: QSTabControllerDataSource?
+    @objc public weak var delegate: QSTabControllerDelegate?
     
-    public var isForceLoad: Bool {
+    @objc public var isForceLoad: Bool {
         return forceLoad
     }
-    public var selectingIndex: Int {
+    @objc public var selectingIndex: Int {
         return selectIndex
     }
-    public var selectViewController: UIViewController? {
+    @objc public var selectViewController: UIViewController? {
         return selectVC
     }
-    public var contentPageView: UIScrollView {
+    @objc public var contentPageView: UIScrollView {
         return pageView
     }
-    public var topTabBarView: UIView & QSTabBarViewProtocol {
+    @objc public var topTabBarView: UIView & QSTabBarViewProtocol {
         return tabBarView
     }
     
@@ -122,8 +125,8 @@ public class QSTabController : UIViewController {
     
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let tabBarViewInset: UIEdgeInsets = delegate?.tabBarViewInset(in: self) ?? UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let tabBarViewAreaHeight = delegate?.heightForTabBarView(in: self) ?? QSTabController.tabBarViewAreaHeightDefault
+        let tabBarViewInset: UIEdgeInsets = delegate?.tabBarViewInset?(in: self) ?? UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        let tabBarViewAreaHeight = delegate?.heightForTabBarView?(in: self) ?? QSTabController.tabBarViewAreaHeightDefault
         tabBarView.frame = CGRect(
             x: tabBarViewInset.left,
             y: tabBarViewInset.top,
@@ -209,10 +212,10 @@ public class QSTabController : UIViewController {
         selectIndex = min(self.numbersOfViewController - 1, selectIndex)
         selectIndex = max(0, selectIndex)
         
-        self.tabBarView.itemSpacing = delegate?.tabBarItemSpacing(in: self) ?? 0
-        self.tabBarView.indicatorHeight = delegate?.indicatorHeight(in: self) ?? 0
-        self.tabBarView.indicatorHidden = delegate?.indicatorHidden(in: self) ?? false
-        self.tabBarView.contentScrollView.contentInset = delegate?.tabBarViewContentInset(in: self) ?? UIEdgeInsets()
+        self.tabBarView.itemSpacing = delegate?.tabBarItemSpacing?(in: self) ?? 0
+        self.tabBarView.indicatorHeight = delegate?.indicatorHeight?(in: self) ?? 0
+        self.tabBarView.indicatorHidden = delegate?.indicatorHidden?(in: self) ?? false
+        self.tabBarView.contentScrollView.contentInset = delegate?.tabBarViewContentInset?(in: self) ?? UIEdgeInsets()
         
         tabBarView.reloadData()
         tabBarView.scroll(to: selectIndex, animated: false)
@@ -264,8 +267,8 @@ public class QSTabController : UIViewController {
             self.pageView.layer.removeAllAnimations()
         }
         
-        delegate?.tabController(self, willDeselectTab: oldSelectIndex, type: selectType)
-        delegate?.tabController(self, willSelectTab: index, type: selectType)
+        delegate?.tabController?(self, willDeselectTab: oldSelectIndex, type: selectType)
+        delegate?.tabController?(self, willSelectTab: index, type: selectType)
         
         let completionBlock = {
             [weak self](animated: Bool) -> Void in
@@ -277,8 +280,8 @@ public class QSTabController : UIViewController {
                         selfVC.updateStatus(status: PGCVCStatus.didAppear, controller: selectVC, animated: animated)
                     }
                 }
-                selfVC.delegate?.tabController(selfVC, didDeselectTab: oldSelectIndex, type: selectType)
-                selfVC.delegate?.tabController(selfVC, didSelectTab: index, type: selectType)
+                selfVC.delegate?.tabController?(selfVC, didDeselectTab: oldSelectIndex, type: selectType)
+                selfVC.delegate?.tabController?(selfVC, didSelectTab: index, type: selectType)
             }
         }
         
@@ -355,7 +358,7 @@ public class QSTabController : UIViewController {
     }
     
     private func defaultSelectIndex() -> Int {
-        return delegate?.defaultSelectIndex(in: self) ?? 0
+        return delegate?.defaultSelectIndex?(in: self) ?? 0
     }
     
     private func loadController(with index: Int) -> UIViewController? {
@@ -369,11 +372,11 @@ public class QSTabController : UIViewController {
 
 extension QSTabController {
     
-    public func reloadData() {
+    @objc public func reloadData() {
         reloadData(isForce: false)
     }
     
-    public func scrollTo(_ index: Int, animated: Bool) {
+    @objc public func scrollTo(_ index: Int, animated: Bool) {
         if index == self.selectIndex || index >= self.numbersOfViewController {
             return
         }
@@ -381,7 +384,7 @@ extension QSTabController {
         tabBarView.scroll(to: index, animated: animated)
     }
     
-    public func contentViewController(with index: Int) -> UIViewController? {
+    @objc public func contentViewController(with index: Int) -> UIViewController? {
         return self.loadedViewControllers[index]
     }
 }
@@ -411,16 +414,12 @@ extension QSTabController : UIScrollViewDelegate, QSTabBarDelegate {
         return dataSource?.tabController(self, barItemView: index) ?? QSTabBarItem()
     }
     
-    public func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, willSelectItem originIdx: Int, targetIdx: Int) {
-        
-    }
-    
     public func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, didSelectItem originIdx: Int, targetIdx: Int) {
         selectTo(index: targetIdx, animated: true, selectType: .click)
     }
     
     public func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, didSelectItemAgain originIdx: Int, targetIdx: Int) {
-        delegate?.tabController(self, didSelectAgainTab: targetIdx, type: .click)
+        delegate?.tabController?(self, didSelectAgainTab: targetIdx, type: .click)
     }
 }
 

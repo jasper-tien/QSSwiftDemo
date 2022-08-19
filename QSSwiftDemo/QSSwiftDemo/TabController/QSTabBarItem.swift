@@ -8,12 +8,13 @@
 import Foundation
 import UIKit
 
+@objc
 public protocol QSTabBarItemProtocol {
     var itemIndex: Int { get }
     var itemWidth: CGFloat { get }
     func config(with index: Int)
-    func config(with customWidth: CGFloat)
-    func config(with actionBlock: @escaping (Int, Int) -> Void)
+    func configCustomWidth(_ customWidth: CGFloat)
+    func configActionBlock(_ actionBlock: @escaping (Int, Int) -> Void)
     func update(with isHighlight: Bool)
     func setupMaxTextLengthLimit(_ limit: UInt)
 }
@@ -26,6 +27,7 @@ private class QSTabBarItemElement {
     var titleSelectNightColor: UIColor?
 }
 
+@objc 
 public class QSTabBarItem: UIView {
     private var actionBlock: ((Int, Int) -> Void)?
     private var isHighlight: Bool = false
@@ -139,7 +141,7 @@ public class QSTabBarItem: UIView {
 }
 
 extension QSTabBarItem {
-    public func config(title: String?, subtitle: String?) {
+    @objc public func config(title: String?, subtitle: String?) {
         hasWidth = false
         var hasTitle = false
         if title != nil {
@@ -158,7 +160,7 @@ extension QSTabBarItem {
         self.setNeedsLayout()
     }
     
-    public func config(titleFont: UIFont?, subtitleFont: UIFont?) {
+    @objc public func config(titleFont: UIFont?, subtitleFont: UIFont?) {
         hasWidth = false
         titleElement.font = titleFont ?? UIFont.systemFont(ofSize: 13)
         subtitleElement.font = subtitleFont ?? UIFont.systemFont(ofSize: 10)
@@ -166,7 +168,7 @@ extension QSTabBarItem {
         self.setNeedsLayout()
     }
     
-    public func config(titleColor: UIColor?, isNight: Bool) {
+    @objc public func config(titleColor: UIColor?, isNight: Bool) {
         if isNight {
             titleElement.titleNightColor = titleColor
         } else {
@@ -176,7 +178,7 @@ extension QSTabBarItem {
         self.setNeedsLayout()
     }
     
-    public func config(subtitleColor: UIColor?, isNight:Bool) {
+    @objc public func config(subtitleColor: UIColor?, isNight:Bool) {
         if isNight {
             subtitleElement.titleNightColor = subtitleColor
         } else {
@@ -186,7 +188,7 @@ extension QSTabBarItem {
         self.setNeedsLayout()
     }
     
-    public func configHightlight(titleColor: UIColor?, isNight: Bool) {
+    @objc public func configHightlight(titleColor: UIColor?, isNight: Bool) {
         if isNight {
             titleElement.titleSelectNightColor = titleColor
         } else {
@@ -196,7 +198,7 @@ extension QSTabBarItem {
         self.setNeedsLayout()
     }
     
-    public func configHightlight(subtitleColor: UIColor?, isNight: Bool) {
+    @objc public func configHightlight(subtitleColor: UIColor?, isNight: Bool) {
         if isNight {
             subtitleElement.titleSelectNightColor = subtitleColor
         } else {
@@ -208,32 +210,32 @@ extension QSTabBarItem {
 }
 
 extension QSTabBarItem : QSTabBarItemProtocol {
-    public var itemIndex: Int {
+    @objc public var itemIndex: Int {
         index
     }
-    public var itemWidth: CGFloat {
+    @objc public var itemWidth: CGFloat {
         contentTitleWidth()
     }
     
-    public func config(with index: Int) {
+    @objc public func config(with index: Int) {
         self.index = index
     }
     
-    public func config(with customWidth: CGFloat) {
+    @objc public func configCustomWidth(_ customWidth: CGFloat) {
         self.customWidth = customWidth
     }
     
-    public func config(with actionBlock: @escaping (Int, Int) -> Void) {
+    @objc public func configActionBlock(_ actionBlock: @escaping (Int, Int) -> Void) {
         self.actionBlock = actionBlock;
     }
     
-    public func update(with isHighlight: Bool) {
+    @objc public func update(with isHighlight: Bool) {
         self.isHighlight = isHighlight
         contentLabel.attributedText = contentTitleAttributedString()
         self.setNeedsLayout()
     }
     
-    public func setupMaxTextLengthLimit(_ limit: UInt) {
+    @objc public func setupMaxTextLengthLimit(_ limit: UInt) {
         self.limit = limit
     }
 }

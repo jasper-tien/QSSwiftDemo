@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import simd
 
+@objc
 public protocol QSTabBarViewProtocol {
     var indicatorHidden: Bool { set get }
     var indicatorAnimated: Bool { set get }
@@ -22,26 +23,28 @@ public protocol QSTabBarViewProtocol {
     func update(with progress: CGFloat, relativeProgress: CGFloat, leftIndex: Int, rightIndex: Int)
 }
  
+@objc
 public protocol QSTabBarDelegate : AnyObject {
     func numbersInQSTabBarView(_ tabBarView: UIView) -> Int
     func tabBarView(_ tabBarView: UIView, index: Int) -> UIView & QSTabBarItemProtocol
-    func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, willSelectItem originIdx: Int, targetIdx: Int)
-    func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, didSelectItem originIdx: Int, targetIdx: Int)
-    func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, didSelectItemAgain originIdx: Int, targetIdx: Int)
+    @objc optional func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, willSelectItem originIdx: Int, targetIdx: Int)
+    @objc optional func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, didSelectItem originIdx: Int, targetIdx: Int)
+    @objc optional func tabBarView(_ tabBarView: UIView & QSTabBarViewProtocol, didSelectItemAgain originIdx: Int, targetIdx: Int)
 }
 
+@objc
 public class QSTabBarView : UIView, QSTabBarViewProtocol {
     public static let tabBarAnimatedDuration = 0.25
     private weak var delegate: QSTabBarDelegate?
     private var selectIndex: Int = 0
     private lazy var itemViews: [UIView & QSTabBarItemProtocol] = []
     
-    public var indicatorHidden: Bool = false
-    public var indicatorAnimated: Bool = true
-    public var indicatorHeight: CGFloat = 5
-    public var itemSpacing: CGFloat = 0
-    public lazy var selectIndicatorView: UIView = UIView()
-    public lazy var contentScrollView: UIScrollView = UIScrollView()
+    @objc public var indicatorHidden: Bool = false
+    @objc public var indicatorAnimated: Bool = true
+    @objc public var indicatorHeight: CGFloat = 5
+    @objc public var itemSpacing: CGFloat = 0
+    @objc public lazy var selectIndicatorView: UIView = UIView()
+    @objc public lazy var contentScrollView: UIScrollView = UIScrollView()
     
     // MARK: init
     
@@ -89,7 +92,7 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
             itemViews.append(itemView)
             contentScrollView.addSubview(itemView)
             
-            itemView.config { [weak self](index, tapsRequiredNumber) in
+            itemView.configActionBlock { [weak self](index, tapsRequiredNumber) in
                 if tapsRequiredNumber == 1 {
                     self?.itemClickAction(with: index)
                 } else if tapsRequiredNumber == 1 {
@@ -178,38 +181,38 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
     // MARK: action
     private func itemClickAction(with index: Int) {
         let originIdx = self.selectIndex
-        delegate?.tabBarView(self, willSelectItem: originIdx, targetIdx: index)
+        delegate?.tabBarView?(self, willSelectItem: originIdx, targetIdx: index)
         switchItem(with: index, animated: indicatorAnimated) { [weak self](animted: Bool) -> Void in
             if let weakSelf = self {
-                weakSelf.delegate?.tabBarView(weakSelf, didSelectItem: originIdx, targetIdx: index)
+                weakSelf.delegate?.tabBarView?(weakSelf, didSelectItem: originIdx, targetIdx: index)
             }
         }
     }
     
     private func itemDoubleClickAction(with index: Int) {
         if self.selectIndex != index { return }
-        delegate?.tabBarView(self, didSelectItemAgain: index, targetIdx: index)
+        delegate?.tabBarView?(self, didSelectItemAgain: index, targetIdx: index)
     }
 }
 
 extension QSTabBarView {
     
-    public func reloadData() {
+    @objc public func reloadData() {
         resetItemViews()
         createAndCongigItemViews()
         updateItemsLayout()
         updateSelectIndicatorLayout()
     }
     
-    public func scroll(to index: Int, animated: Bool) {
+    @objc public func scroll(to index: Int, animated: Bool) {
         self.switchItem(with: index, animated: animated, completion: nil)
     }
     
-    public func configDelegate(_ delegate: QSTabBarDelegate) {
+    @objc public func configDelegate(_ delegate: QSTabBarDelegate) {
         self.delegate = delegate
     }
     
-    public func update(with progress: CGFloat, relativeProgress: CGFloat, leftIndex: Int, rightIndex: Int) {
+    @objc public func update(with progress: CGFloat, relativeProgress: CGFloat, leftIndex: Int, rightIndex: Int) {
         if progress.isNaN || relativeProgress.isNaN || leftIndex < 0 || rightIndex < 0 {
             return
         }
