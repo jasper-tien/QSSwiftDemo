@@ -28,7 +28,7 @@ class QSTabTestController: UIViewController, QSTabControllerDataSource, QSTabCon
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.white
         
-        let bgColors: [Array] = [
+        let bgColors: [Array<Any>] = [
             [UIColor.purple, "紫色"],
             [UIColor.orange, "橘色"],
             [UIColor.green, "绿色"],

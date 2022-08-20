@@ -27,6 +27,7 @@
 		8ED6433028A3EE22005908C5 /* QSEnumTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */; };
 		8ED6433228A3EE34005908C5 /* QSClassTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6433128A3EE34005908C5 /* QSClassTest.swift */; };
 		8ED6433428A3EE40005908C5 /* QSStructTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6433328A3EE40005908C5 /* QSStructTest.swift */; };
+		8EE21A4128B08C2D0007BDEB /* QSInitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE21A4028B08C2D0007BDEB /* QSInitTest.swift */; };
 		8EEF0555289AB6EA00CADD1E /* QSTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF0554289AB6EA00CADD1E /* QSTabController.swift */; };
 		8EEF0559289AB71000CADD1E /* QSTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF0558289AB71000CADD1E /* QSTabBarView.swift */; };
 		8EEF055B289AB72400CADD1E /* QSTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF055A289AB72400CADD1E /* QSTabBarItem.swift */; };
@@ -76,6 +77,7 @@
 		8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSEnumTest.swift; sourceTree = "<group>"; };
 		8ED6433128A3EE34005908C5 /* QSClassTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSClassTest.swift; sourceTree = "<group>"; };
 		8ED6433328A3EE40005908C5 /* QSStructTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSStructTest.swift; sourceTree = "<group>"; };
+		8EE21A4028B08C2D0007BDEB /* QSInitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSInitTest.swift; sourceTree = "<group>"; };
 		8EEF0554289AB6EA00CADD1E /* QSTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabController.swift; sourceTree = "<group>"; };
 		8EEF0558289AB71000CADD1E /* QSTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabBarView.swift; sourceTree = "<group>"; };
 		8EEF055A289AB72400CADD1E /* QSTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabBarItem.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */,
 				8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */,
 				8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */,
+				8EE21A4028B08C2D0007BDEB /* QSInitTest.swift */,
 			);
 			path = study;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				8ED6433028A3EE22005908C5 /* QSEnumTest.swift in Sources */,
 				8E997FD827F980D200D330C3 /* QSBaseTest.swift in Sources */,
 				8E76019126C78B74002ADF00 /* DocumentViewController.swift in Sources */,
+				8EE21A4128B08C2D0007BDEB /* QSInitTest.swift in Sources */,
 				8E76018F26C78B74002ADF00 /* DocumentBrowserViewController.swift in Sources */,
 				8EEF0559289AB71000CADD1E /* QSTabBarView.swift in Sources */,
 				8EABB317280BF4F3001782AE /* QSBaseUIAdapter.swift in Sources */,

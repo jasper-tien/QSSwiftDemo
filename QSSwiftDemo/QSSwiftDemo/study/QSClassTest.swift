@@ -104,66 +104,6 @@ class Book: NSObject {
     }
 }
 
-
-// 初始化器
-class InitObject {
-    let style: String
-    var name: String
-    var age: Int
-    var sex: String = "男"
-    internal var number: Int = 0
-    required init () {
-        self.style = "person"
-        self.name = "tianmaotao"
-        self.age = 0
-    }
-    init(_ name: String) {
-        self.style = "person"
-        self.name = name
-        self.age = 0
-    }
-    init(_ age: Int) {
-        self.style = "person"
-        self.name = ""
-        self.age = age
-    }
-    convenience init(sex: String) {
-        self.init("person")
-    }
-    init?(with name: String?) {
-        if name == nil {
-            return nil
-        }
-        self.style = "person"
-        self.name = ""
-        self.age = 0
-    }
-    
-    func printFunc() {
-        let str = name + sex
-        print("\(str)")
-    }
-}
-
-class SubInitObject : InitObject {
-    var isSub: Bool = true
-    required init() {
-        super.init()
-    }
-    override init(_ name: String) {
-        super.init(name)
-    }
-    override convenience init(_ age: Int) {
-        self.init("tianmaotao", age: age)
-    }
-    init(_ name: String, age: Int) {
-        self.isSub = true
-        super.init(name)
-        self.age = age
-    }
-}
-
-
 ///// 泛型
 class Car<Element> {
     var items: [Element]?
