@@ -40,6 +40,9 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         let initTest = QSInitTest()
         initTest.test_fire()
         
+        let chipTest = QSChipGatherTest()
+        chipTest.test_fire()
+        
         // Update the style of the UIDocumentBrowserViewController
         // browserUserInterfaceStyle = .dark
         // view.tintColor = .white
