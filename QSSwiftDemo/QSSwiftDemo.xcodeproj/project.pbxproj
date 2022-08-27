@@ -24,6 +24,7 @@
 		8E7601A626C78B75002ADF00 /* QSSwiftDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7601A526C78B75002ADF00 /* QSSwiftDemoTests.swift */; };
 		8E7601B126C78B75002ADF00 /* QSSwiftDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7601B026C78B75002ADF00 /* QSSwiftDemoUITests.swift */; };
 		8E997FD827F980D200D330C3 /* QSBaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E997FD727F980D200D330C3 /* QSBaseTest.swift */; };
+		8EAADE6C28BA230800BD5874 /* UIView+qs_Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAADE6B28BA230800BD5874 /* UIView+qs_Frame.m */; };
 		8EABB317280BF4F3001782AE /* QSBaseUIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EABB316280BF4F3001782AE /* QSBaseUIAdapter.swift */; };
 		8ED6433028A3EE22005908C5 /* QSEnumTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */; };
 		8ED6433228A3EE34005908C5 /* QSClassTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6433128A3EE34005908C5 /* QSClassTest.swift */; };
@@ -75,6 +76,9 @@
 		8E7601B026C78B75002ADF00 /* QSSwiftDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSSwiftDemoUITests.swift; sourceTree = "<group>"; };
 		8E7601B226C78B75002ADF00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E997FD727F980D200D330C3 /* QSBaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSBaseTest.swift; sourceTree = "<group>"; };
+		8EAADE6628BA22B000BD5874 /* QSSwiftDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QSSwiftDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		8EAADE6A28BA230800BD5874 /* UIView+qs_Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+qs_Frame.h"; sourceTree = "<group>"; };
+		8EAADE6B28BA230800BD5874 /* UIView+qs_Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+qs_Frame.m"; sourceTree = "<group>"; };
 		8EABB316280BF4F3001782AE /* QSBaseUIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSBaseUIAdapter.swift; sourceTree = "<group>"; };
 		8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSEnumTest.swift; sourceTree = "<group>"; };
 		8ED6433128A3EE34005908C5 /* QSClassTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSClassTest.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				8E76018E26C78B74002ADF00 /* DocumentBrowserViewController.swift */,
 				8E76019026C78B74002ADF00 /* DocumentViewController.swift */,
 				8E76019226C78B74002ADF00 /* Document.swift */,
+				8EAADE6528BA227D00BD5874 /* Utils */,
 				8E2878A428ABC88C0026B3B6 /* Pages */,
 				8ED6432E28A3EDB0005908C5 /* study */,
 				8EEF0553289AB66100CADD1E /* TabController */,
@@ -183,6 +188,16 @@
 				8E7601B226C78B75002ADF00 /* Info.plist */,
 			);
 			path = QSSwiftDemoUITests;
+			sourceTree = "<group>";
+		};
+		8EAADE6528BA227D00BD5874 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8EAADE6628BA22B000BD5874 /* QSSwiftDemo-Bridging-Header.h */,
+				8EAADE6A28BA230800BD5874 /* UIView+qs_Frame.h */,
+				8EAADE6B28BA230800BD5874 /* UIView+qs_Frame.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		8EABB315280BF4A0001782AE /* UIAdapter */ = {
@@ -286,6 +301,7 @@
 				TargetAttributes = {
 					8E76018826C78B74002ADF00 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1320;
 					};
 					8E7601A026C78B75002ADF00 = {
 						CreatedOnToolsVersion = 12.5;
@@ -361,6 +377,7 @@
 				8E0EE03D28A9455300A083E3 /* QSBlockTest.swift in Sources */,
 				8ED6433028A3EE22005908C5 /* QSEnumTest.swift in Sources */,
 				8E997FD827F980D200D330C3 /* QSBaseTest.swift in Sources */,
+				8EAADE6C28BA230800BD5874 /* UIView+qs_Frame.m in Sources */,
 				8E76019126C78B74002ADF00 /* DocumentViewController.swift in Sources */,
 				8EE21A4128B08C2D0007BDEB /* QSInitTest.swift in Sources */,
 				8E76018F26C78B74002ADF00 /* DocumentBrowserViewController.swift in Sources */,
@@ -544,7 +561,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = QSSwiftDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -552,6 +571,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianmaotao.test.QSSwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QSSwiftDemo/Utils/QSSwiftDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -562,7 +583,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = QSSwiftDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -570,6 +593,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianmaotao.test.QSSwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QSSwiftDemo/Utils/QSSwiftDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
