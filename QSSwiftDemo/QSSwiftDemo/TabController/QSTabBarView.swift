@@ -43,8 +43,20 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
     @objc public var indicatorAnimated: Bool = true
     @objc public var indicatorHeight: CGFloat = 5
     @objc public var itemSpacing: CGFloat = 0
-    @objc public lazy var selectIndicatorView: UIView = UIView()
-    @objc public lazy var contentScrollView: UIScrollView = UIScrollView()
+    
+    @objc public lazy var selectIndicatorView: UIView = {
+        let selectIndicatorView = UIView()
+        selectIndicatorView.backgroundColor = UIColor.systemPink
+        return selectIndicatorView
+    }()
+    
+    @objc public lazy var contentScrollView: UIScrollView = {
+        let contentScrollView = UIScrollView()
+        contentScrollView.showsVerticalScrollIndicator = false
+        contentScrollView.showsHorizontalScrollIndicator = false
+        contentScrollView.contentInsetAdjustmentBehavior = .never;
+        return contentScrollView
+    }()
     
     // MARK: init
     
@@ -69,11 +81,7 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
     // MARK: private
     
     private func setupSubviews() {
-        contentScrollView.showsVerticalScrollIndicator = false
-        contentScrollView.showsHorizontalScrollIndicator = false
         self.addSubview(contentScrollView)
-        
-        selectIndicatorView.backgroundColor = UIColor.systemPink
         self.addSubview(selectIndicatorView)
     }
     
