@@ -10,7 +10,12 @@ import AVKit
 
 class QSViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var tableView: UITableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: .plain)
+    var tableView: UITableView = {
+        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: .plain)
+        tableView.backgroundColor = UIColor.white
+        tableView.register(QSTableViewCell.self, forCellReuseIdentifier: "tableViewCellId")
+        return tableView
+    }()
     var viewModels: [QSListCardViewModel] = []
     var playerVC: AVPlayerViewController?
     
@@ -42,11 +47,8 @@ class QSViewController: UIViewController, UITableViewDataSource, UITableViewDele
             }
             viewModels.append(vm)
         }
-        
-        tableView.backgroundColor = UIColor.white
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(QSTableViewCell.self, forCellReuseIdentifier: "tableViewCellId")
         view.addSubview(tableView)
     }
     
@@ -133,32 +135,36 @@ class QSListCardViewModel: QSListCardProtocol {
 }
 
 class QSTableViewCell : UITableViewCell {
-    var nameLabel: UILabel!
-    var sexLabel: UILabel!
-    var descLabel: UILabel!
-    var viewModel: QSListCardViewModel?
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        nameLabel = UILabel()
+    let nameLabel: UILabel = {
+        let nameLabel = UILabel()
         nameLabel.font = UIFont.systemFont(ofSize: 16)
         nameLabel.textColor = UIColor.black
         nameLabel.numberOfLines = 1
         nameLabel.textAlignment = .left
-        self.addSubview(nameLabel)
-        
-        sexLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        return nameLabel
+    }()
+    let sexLabel: UILabel = {
+        let sexLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         sexLabel.font = UIFont.systemFont(ofSize: 14)
         sexLabel.textColor = UIColor.lightGray
         sexLabel.numberOfLines = 1
         sexLabel.textAlignment = .left
-        self.addSubview(sexLabel)
-        
-        descLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        return sexLabel
+    }()
+    var descLabel: UILabel = {
+        let descLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         descLabel.font = UIFont.systemFont(ofSize: 14)
         descLabel.textColor = UIColor.lightGray
         descLabel.numberOfLines = 0
         descLabel.textAlignment = .left
+        return descLabel
+    }()
+    var viewModel: QSListCardViewModel?
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.addSubview(nameLabel)
+        self.addSubview(sexLabel)
         self.addSubview(descLabel)
     }
     
