@@ -23,6 +23,7 @@
 		8E76019B26C78B75002ADF00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E76019926C78B75002ADF00 /* LaunchScreen.storyboard */; };
 		8E7601A626C78B75002ADF00 /* QSSwiftDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7601A526C78B75002ADF00 /* QSSwiftDemoTests.swift */; };
 		8E7601B126C78B75002ADF00 /* QSSwiftDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7601B026C78B75002ADF00 /* QSSwiftDemoUITests.swift */; };
+		8E8AE72828BB44650046C2FC /* QSGenericityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AE72728BB44650046C2FC /* QSGenericityTest.swift */; };
 		8E997FD827F980D200D330C3 /* QSBaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E997FD727F980D200D330C3 /* QSBaseTest.swift */; };
 		8EAADE6C28BA230800BD5874 /* UIView+qs_Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAADE6B28BA230800BD5874 /* UIView+qs_Frame.m */; };
 		8EABB317280BF4F3001782AE /* QSBaseUIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EABB316280BF4F3001782AE /* QSBaseUIAdapter.swift */; };
@@ -75,6 +76,7 @@
 		8E7601AC26C78B75002ADF00 /* QSSwiftDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QSSwiftDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7601B026C78B75002ADF00 /* QSSwiftDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSSwiftDemoUITests.swift; sourceTree = "<group>"; };
 		8E7601B226C78B75002ADF00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E8AE72728BB44650046C2FC /* QSGenericityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSGenericityTest.swift; sourceTree = "<group>"; };
 		8E997FD727F980D200D330C3 /* QSBaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSBaseTest.swift; sourceTree = "<group>"; };
 		8EAADE6628BA22B000BD5874 /* QSSwiftDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QSSwiftDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		8EAADE6A28BA230800BD5874 /* UIView+qs_Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+qs_Frame.h"; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */,
 				8EE21A4028B08C2D0007BDEB /* QSInitTest.swift */,
 				8E71633228B25A4C00ABA57C /* QSChipGatherTest.swift */,
+				8E8AE72728BB44650046C2FC /* QSGenericityTest.swift */,
 			);
 			path = study;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				8EEF0555289AB6EA00CADD1E /* QSTabController.swift in Sources */,
 				8E7054D22830D07700C074F9 /* CreationalPattern.swift in Sources */,
 				8E0EE03D28A9455300A083E3 /* QSBlockTest.swift in Sources */,
+				8E8AE72828BB44650046C2FC /* QSGenericityTest.swift in Sources */,
 				8ED6433028A3EE22005908C5 /* QSEnumTest.swift in Sources */,
 				8E997FD827F980D200D330C3 /* QSBaseTest.swift in Sources */,
 				8EAADE6C28BA230800BD5874 /* UIView+qs_Frame.m in Sources */,

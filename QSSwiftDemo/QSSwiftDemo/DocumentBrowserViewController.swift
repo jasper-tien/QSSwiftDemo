@@ -37,11 +37,14 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
 //        let extensionTest = QSExtensionTest()
 //        extensionTest.test_fire()
         
-        let initTest = QSInitTest()
-        initTest.test_fire()
+//        let initTest = QSInitTest()
+//        initTest.test_fire()
+//
+//        let chipTest = QSChipGatherTest()
+//        chipTest.test_fire()
         
-        let chipTest = QSChipGatherTest()
-        chipTest.test_fire()
+        let genericityTest = QSGenericityTest()
+        genericityTest.test_fire()
         
         // Update the style of the UIDocumentBrowserViewController
         // browserUserInterfaceStyle = .dark
