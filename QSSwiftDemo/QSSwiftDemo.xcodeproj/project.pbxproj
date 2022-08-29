@@ -118,21 +118,100 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8E2878A428ABC88C0026B3B6 /* Pages */ = {
+		8E27487328BD117000BF5597 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				8EAADE6528BA227D00BD5874 /* Utils */,
+				8EEF0553289AB66100CADD1E /* TabController */,
+				8EABB315280BF4A0001782AE /* UIAdapter */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		8E27487428BD117000BF5597 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				8E27487728BD11CA00BF5597 /* Home */,
+				8E27487628BD119600BF5597 /* Main */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		8E27487528BD117000BF5597 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				8E27487D28BD13F600BF5597 /* pattern */,
+				8E27487A28BD12A700BF5597 /* language */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		8E27487628BD119600BF5597 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8E76018C26C78B74002ADF00 /* AppDelegate.swift */,
+				8E76018E26C78B74002ADF00 /* DocumentBrowserViewController.swift */,
+				8E76019026C78B74002ADF00 /* DocumentViewController.swift */,
+				8E76019226C78B74002ADF00 /* Document.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		8E27487728BD11CA00BF5597 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				8E403D072802BF410009A0FF /* QSViewController.swift */,
-				8E2878A528ABC8AA0026B3B6 /* QSTabTestController.swift */,
 			);
-			path = Pages;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		8E7054D02830CA9700C074F9 /* DesignPatterns */ = {
+		8E27487828BD121D00BF5597 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				8E27487C28BD135700BF5597 /* tab */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		8E27487A28BD12A700BF5597 /* language */ = {
+			isa = PBXGroup;
+			children = (
+				8E27487B28BD12B500BF5597 /* swift */,
+			);
+			path = language;
+			sourceTree = "<group>";
+		};
+		8E27487B28BD12B500BF5597 /* swift */ = {
+			isa = PBXGroup;
+			children = (
+				8E997FD727F980D200D330C3 /* QSBaseTest.swift */,
+				8ED6433128A3EE34005908C5 /* QSClassTest.swift */,
+				8E0EE03C28A9455300A083E3 /* QSBlockTest.swift */,
+				8ED6433328A3EE40005908C5 /* QSStructTest.swift */,
+				8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */,
+				8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */,
+				8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */,
+				8EE21A4028B08C2D0007BDEB /* QSInitTest.swift */,
+				8E71633228B25A4C00ABA57C /* QSChipGatherTest.swift */,
+				8E8AE72728BB44650046C2FC /* QSGenericityTest.swift */,
+			);
+			path = swift;
+			sourceTree = "<group>";
+		};
+		8E27487C28BD135700BF5597 /* tab */ = {
+			isa = PBXGroup;
+			children = (
+				8E2878A528ABC8AA0026B3B6 /* QSTabTestController.swift */,
+			);
+			path = tab;
+			sourceTree = "<group>";
+		};
+		8E27487D28BD13F600BF5597 /* pattern */ = {
 			isa = PBXGroup;
 			children = (
 				8E7054D12830D07700C074F9 /* CreationalPattern.swift */,
 			);
-			path = DesignPatterns;
+			path = pattern;
 			sourceTree = "<group>";
 		};
 		8E76018026C78B74002ADF00 = {
@@ -158,16 +237,10 @@
 		8E76018B26C78B74002ADF00 /* QSSwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
-				8E76018C26C78B74002ADF00 /* AppDelegate.swift */,
-				8E76018E26C78B74002ADF00 /* DocumentBrowserViewController.swift */,
-				8E76019026C78B74002ADF00 /* DocumentViewController.swift */,
-				8E76019226C78B74002ADF00 /* Document.swift */,
-				8EAADE6528BA227D00BD5874 /* Utils */,
-				8E2878A428ABC88C0026B3B6 /* Pages */,
-				8ED6432E28A3EDB0005908C5 /* study */,
-				8EEF0553289AB66100CADD1E /* TabController */,
-				8E7054D02830CA9700C074F9 /* DesignPatterns */,
-				8EABB315280BF4A0001782AE /* UIAdapter */,
+				8E27487528BD117000BF5597 /* base */,
+				8E27487328BD117000BF5597 /* common */,
+				8E27487428BD117000BF5597 /* app */,
+				8E27487828BD121D00BF5597 /* test */,
 				8E76019426C78B74002ADF00 /* Main.storyboard */,
 				8E76019726C78B75002ADF00 /* Assets.xcassets */,
 				8E76019926C78B75002ADF00 /* LaunchScreen.storyboard */,
@@ -211,23 +284,6 @@
 				8EABB316280BF4F3001782AE /* QSBaseUIAdapter.swift */,
 			);
 			path = UIAdapter;
-			sourceTree = "<group>";
-		};
-		8ED6432E28A3EDB0005908C5 /* study */ = {
-			isa = PBXGroup;
-			children = (
-				8E997FD727F980D200D330C3 /* QSBaseTest.swift */,
-				8ED6433128A3EE34005908C5 /* QSClassTest.swift */,
-				8E0EE03C28A9455300A083E3 /* QSBlockTest.swift */,
-				8ED6433328A3EE40005908C5 /* QSStructTest.swift */,
-				8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */,
-				8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */,
-				8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */,
-				8EE21A4028B08C2D0007BDEB /* QSInitTest.swift */,
-				8E71633228B25A4C00ABA57C /* QSChipGatherTest.swift */,
-				8E8AE72728BB44650046C2FC /* QSGenericityTest.swift */,
-			);
-			path = study;
 			sourceTree = "<group>";
 		};
 		8EEF0553289AB66100CADD1E /* TabController */ = {
@@ -602,7 +658,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianmaotao.test.QSSwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "QSSwiftDemo/Utils/QSSwiftDemo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "QSSwiftDemo/common/Utils/QSSwiftDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -624,7 +680,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianmaotao.test.QSSwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "QSSwiftDemo/Utils/QSSwiftDemo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "QSSwiftDemo/common/Utils/QSSwiftDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
