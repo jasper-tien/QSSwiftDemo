@@ -10,6 +10,7 @@
 		8E0EE03928A8CE3E00A083E3 /* QSProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */; };
 		8E0EE03B28A93F1900A083E3 /* QSExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */; };
 		8E0EE03D28A9455300A083E3 /* QSBlockTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EE03C28A9455300A083E3 /* QSBlockTest.swift */; };
+		8E11A84C28B5C76300E06DFE /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8E11A84B28B5C76300E06DFE /* Config.xcconfig */; };
 		8E2878A628ABC8AA0026B3B6 /* QSTabTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2878A528ABC8AA0026B3B6 /* QSTabTestController.swift */; };
 		8E403D082802BF410009A0FF /* QSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E403D072802BF410009A0FF /* QSViewController.swift */; };
 		8E7054D22830D07700C074F9 /* CreationalPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7054D12830D07700C074F9 /* CreationalPattern.swift */; };
@@ -57,6 +58,7 @@
 		8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSProtocolTest.swift; sourceTree = "<group>"; };
 		8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSExtensionTest.swift; sourceTree = "<group>"; };
 		8E0EE03C28A9455300A083E3 /* QSBlockTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSBlockTest.swift; sourceTree = "<group>"; };
+		8E11A84B28B5C76300E06DFE /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		8E2878A528ABC8AA0026B3B6 /* QSTabTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabTestController.swift; sourceTree = "<group>"; };
 		8E403D072802BF410009A0FF /* QSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSViewController.swift; sourceTree = "<group>"; };
 		8E7054D12830D07700C074F9 /* CreationalPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationalPattern.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				8E76019726C78B75002ADF00 /* Assets.xcassets */,
 				8E76019926C78B75002ADF00 /* LaunchScreen.storyboard */,
 				8E76019C26C78B75002ADF00 /* Info.plist */,
+				8E11A84B28B5C76300E06DFE /* Config.xcconfig */,
 			);
 			path = QSSwiftDemo;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				8E76018526C78B74002ADF00 /* Sources */,
 				8E76018626C78B74002ADF00 /* Frameworks */,
 				8E76018726C78B74002ADF00 /* Resources */,
+				8E11A84A28B5C6DC00E06DFE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -341,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E11A84C28B5C76300E06DFE /* Config.xcconfig in Resources */,
 				8E76019B26C78B75002ADF00 /* LaunchScreen.storyboard in Resources */,
 				8E76019826C78B75002ADF00 /* Assets.xcassets in Resources */,
 				8E76019626C78B74002ADF00 /* Main.storyboard in Resources */,
@@ -362,6 +367,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8E11A84A28B5C6DC00E06DFE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\necho \"----${LD_MAP_FILE_PATH}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8E76018526C78B74002ADF00 /* Sources */ = {
@@ -446,6 +471,7 @@
 /* Begin XCBuildConfiguration section */
 		8E7601B326C78B75002ADF00 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E11A84B28B5C76300E06DFE /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -507,6 +533,7 @@
 		};
 		8E7601B426C78B75002ADF00 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E11A84B28B5C76300E06DFE /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
