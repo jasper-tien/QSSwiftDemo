@@ -11,6 +11,7 @@
 		8E0EE03B28A93F1900A083E3 /* QSExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */; };
 		8E0EE03D28A9455300A083E3 /* QSBlockTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EE03C28A9455300A083E3 /* QSBlockTest.swift */; };
 		8E11A84C28B5C76300E06DFE /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8E11A84B28B5C76300E06DFE /* Config.xcconfig */; };
+		8E27487F28BD172100BF5597 /* QSHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27487E28BD172100BF5597 /* QSHomeController.swift */; };
 		8E2878A628ABC8AA0026B3B6 /* QSTabTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2878A528ABC8AA0026B3B6 /* QSTabTestController.swift */; };
 		8E403D082802BF410009A0FF /* QSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E403D072802BF410009A0FF /* QSViewController.swift */; };
 		8E7054D22830D07700C074F9 /* CreationalPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7054D12830D07700C074F9 /* CreationalPattern.swift */; };
@@ -59,6 +60,7 @@
 		8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSExtensionTest.swift; sourceTree = "<group>"; };
 		8E0EE03C28A9455300A083E3 /* QSBlockTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSBlockTest.swift; sourceTree = "<group>"; };
 		8E11A84B28B5C76300E06DFE /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		8E27487E28BD172100BF5597 /* QSHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSHomeController.swift; sourceTree = "<group>"; };
 		8E2878A528ABC8AA0026B3B6 /* QSTabTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabTestController.swift; sourceTree = "<group>"; };
 		8E403D072802BF410009A0FF /* QSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSViewController.swift; sourceTree = "<group>"; };
 		8E7054D12830D07700C074F9 /* CreationalPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationalPattern.swift; sourceTree = "<group>"; };
@@ -131,8 +133,8 @@
 		8E27487428BD117000BF5597 /* app */ = {
 			isa = PBXGroup;
 			children = (
-				8E27487728BD11CA00BF5597 /* Home */,
 				8E27487628BD119600BF5597 /* Main */,
+				8E27487728BD11CA00BF5597 /* Home */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -140,6 +142,7 @@
 		8E27487528BD117000BF5597 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				8E27488028BD18AD00BF5597 /* config */,
 				8E27487D28BD13F600BF5597 /* pattern */,
 				8E27487A28BD12A700BF5597 /* language */,
 			);
@@ -161,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				8E403D072802BF410009A0FF /* QSViewController.swift */,
+				8E27487E28BD172100BF5597 /* QSHomeController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -214,6 +218,15 @@
 			path = pattern;
 			sourceTree = "<group>";
 		};
+		8E27488028BD18AD00BF5597 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				8EAADE6628BA22B000BD5874 /* QSSwiftDemo-Bridging-Header.h */,
+				8E11A84B28B5C76300E06DFE /* Config.xcconfig */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
 		8E76018026C78B74002ADF00 = {
 			isa = PBXGroup;
 			children = (
@@ -245,7 +258,6 @@
 				8E76019726C78B75002ADF00 /* Assets.xcassets */,
 				8E76019926C78B75002ADF00 /* LaunchScreen.storyboard */,
 				8E76019C26C78B75002ADF00 /* Info.plist */,
-				8E11A84B28B5C76300E06DFE /* Config.xcconfig */,
 			);
 			path = QSSwiftDemo;
 			sourceTree = "<group>";
@@ -271,7 +283,6 @@
 		8EAADE6528BA227D00BD5874 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8EAADE6628BA22B000BD5874 /* QSSwiftDemo-Bridging-Header.h */,
 				8EAADE6A28BA230800BD5874 /* UIView+qs_Frame.h */,
 				8EAADE6B28BA230800BD5874 /* UIView+qs_Frame.m */,
 			);
@@ -464,6 +475,7 @@
 				8E997FD827F980D200D330C3 /* QSBaseTest.swift in Sources */,
 				8EAADE6C28BA230800BD5874 /* UIView+qs_Frame.m in Sources */,
 				8E76019126C78B74002ADF00 /* DocumentViewController.swift in Sources */,
+				8E27487F28BD172100BF5597 /* QSHomeController.swift in Sources */,
 				8EE21A4128B08C2D0007BDEB /* QSInitTest.swift in Sources */,
 				8E76018F26C78B74002ADF00 /* DocumentBrowserViewController.swift in Sources */,
 				8EEF0559289AB71000CADD1E /* QSTabBarView.swift in Sources */,
@@ -658,7 +670,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianmaotao.test.QSSwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "QSSwiftDemo/common/Utils/QSSwiftDemo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "QSSwiftDemo/base/config/QSSwiftDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -680,7 +692,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianmaotao.test.QSSwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "QSSwiftDemo/common/Utils/QSSwiftDemo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "QSSwiftDemo/base/config/QSSwiftDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
