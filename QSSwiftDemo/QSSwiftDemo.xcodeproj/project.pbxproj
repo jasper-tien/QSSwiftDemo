@@ -13,7 +13,6 @@
 		8E11A84C28B5C76300E06DFE /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8E11A84B28B5C76300E06DFE /* Config.xcconfig */; };
 		8E27487F28BD172100BF5597 /* QSHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27487E28BD172100BF5597 /* QSHomeController.swift */; };
 		8E2878A628ABC8AA0026B3B6 /* QSTabTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2878A528ABC8AA0026B3B6 /* QSTabTestController.swift */; };
-		8E403D082802BF410009A0FF /* QSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E403D072802BF410009A0FF /* QSViewController.swift */; };
 		8E7054D22830D07700C074F9 /* CreationalPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7054D12830D07700C074F9 /* CreationalPattern.swift */; };
 		8E71633328B25A4C00ABA57C /* QSChipGatherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E71633228B25A4C00ABA57C /* QSChipGatherTest.swift */; };
 		8E76018D26C78B74002ADF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E76018C26C78B74002ADF00 /* AppDelegate.swift */; };
@@ -29,6 +28,8 @@
 		8E997FD827F980D200D330C3 /* QSBaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E997FD727F980D200D330C3 /* QSBaseTest.swift */; };
 		8EAADE6C28BA230800BD5874 /* UIView+qs_Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAADE6B28BA230800BD5874 /* UIView+qs_Frame.m */; };
 		8EABB317280BF4F3001782AE /* QSBaseUIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EABB316280BF4F3001782AE /* QSBaseUIAdapter.swift */; };
+		8EB90F5B28BDAD500018D4B4 /* QSTestPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB90F5A28BDAD500018D4B4 /* QSTestPageController.swift */; };
+		8EB90F5E28BDB81C0018D4B4 /* QSTableTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB90F5D28BDB81C0018D4B4 /* QSTableTestController.swift */; };
 		8ED6433028A3EE22005908C5 /* QSEnumTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */; };
 		8ED6433228A3EE34005908C5 /* QSClassTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6433128A3EE34005908C5 /* QSClassTest.swift */; };
 		8ED6433428A3EE40005908C5 /* QSStructTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6433328A3EE40005908C5 /* QSStructTest.swift */; };
@@ -62,7 +63,6 @@
 		8E11A84B28B5C76300E06DFE /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		8E27487E28BD172100BF5597 /* QSHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSHomeController.swift; sourceTree = "<group>"; };
 		8E2878A528ABC8AA0026B3B6 /* QSTabTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabTestController.swift; sourceTree = "<group>"; };
-		8E403D072802BF410009A0FF /* QSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSViewController.swift; sourceTree = "<group>"; };
 		8E7054D12830D07700C074F9 /* CreationalPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationalPattern.swift; sourceTree = "<group>"; };
 		8E71633228B25A4C00ABA57C /* QSChipGatherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSChipGatherTest.swift; sourceTree = "<group>"; };
 		8E76018926C78B74002ADF00 /* QSSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +86,8 @@
 		8EAADE6A28BA230800BD5874 /* UIView+qs_Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+qs_Frame.h"; sourceTree = "<group>"; };
 		8EAADE6B28BA230800BD5874 /* UIView+qs_Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+qs_Frame.m"; sourceTree = "<group>"; };
 		8EABB316280BF4F3001782AE /* QSBaseUIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSBaseUIAdapter.swift; sourceTree = "<group>"; };
+		8EB90F5A28BDAD500018D4B4 /* QSTestPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTestPageController.swift; sourceTree = "<group>"; };
+		8EB90F5D28BDB81C0018D4B4 /* QSTableTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTableTestController.swift; sourceTree = "<group>"; };
 		8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSEnumTest.swift; sourceTree = "<group>"; };
 		8ED6433128A3EE34005908C5 /* QSClassTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSClassTest.swift; sourceTree = "<group>"; };
 		8ED6433328A3EE40005908C5 /* QSStructTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSStructTest.swift; sourceTree = "<group>"; };
@@ -133,6 +135,8 @@
 		8E27487428BD117000BF5597 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				8EB90F5C28BDB8030018D4B4 /* TableTest */,
+				8EB90F5928BDAD370018D4B4 /* Test */,
 				8E27487628BD119600BF5597 /* Main */,
 				8E27487728BD11CA00BF5597 /* Home */,
 			);
@@ -163,7 +167,6 @@
 		8E27487728BD11CA00BF5597 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				8E403D072802BF410009A0FF /* QSViewController.swift */,
 				8E27487E28BD172100BF5597 /* QSHomeController.swift */,
 			);
 			path = Home;
@@ -295,6 +298,22 @@
 				8EABB316280BF4F3001782AE /* QSBaseUIAdapter.swift */,
 			);
 			path = UIAdapter;
+			sourceTree = "<group>";
+		};
+		8EB90F5928BDAD370018D4B4 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				8EB90F5A28BDAD500018D4B4 /* QSTestPageController.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		8EB90F5C28BDB8030018D4B4 /* TableTest */ = {
+			isa = PBXGroup;
+			children = (
+				8EB90F5D28BDB81C0018D4B4 /* QSTableTestController.swift */,
+			);
+			path = TableTest;
 			sourceTree = "<group>";
 		};
 		8EEF0553289AB66100CADD1E /* TabController */ = {
@@ -462,11 +481,11 @@
 			files = (
 				8EEF055B289AB72400CADD1E /* QSTabBarItem.swift in Sources */,
 				8E0EE03B28A93F1900A083E3 /* QSExtensionTest.swift in Sources */,
+				8EB90F5B28BDAD500018D4B4 /* QSTestPageController.swift in Sources */,
 				8E76019326C78B74002ADF00 /* Document.swift in Sources */,
 				8ED6433428A3EE40005908C5 /* QSStructTest.swift in Sources */,
 				8ED6433228A3EE34005908C5 /* QSClassTest.swift in Sources */,
 				8E2878A628ABC8AA0026B3B6 /* QSTabTestController.swift in Sources */,
-				8E403D082802BF410009A0FF /* QSViewController.swift in Sources */,
 				8EEF0555289AB6EA00CADD1E /* QSTabController.swift in Sources */,
 				8E7054D22830D07700C074F9 /* CreationalPattern.swift in Sources */,
 				8E0EE03D28A9455300A083E3 /* QSBlockTest.swift in Sources */,
@@ -483,6 +502,7 @@
 				8EABB317280BF4F3001782AE /* QSBaseUIAdapter.swift in Sources */,
 				8E76018D26C78B74002ADF00 /* AppDelegate.swift in Sources */,
 				8E0EE03928A8CE3E00A083E3 /* QSProtocolTest.swift in Sources */,
+				8EB90F5E28BDB81C0018D4B4 /* QSTableTestController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

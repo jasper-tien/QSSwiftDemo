@@ -1,14 +1,14 @@
 //
-//  QSViewController.swift
+//  QSTableTestController.swift
 //  QSSwiftDemo
 //
-//  Created by tianmaotao on 2022/4/10.
+//  Created by tianmaotao on 2022/8/30.
 //
 
 import UIKit
 import AVKit
 
-class QSViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class QSTableTestController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var tableView: UITableView = {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: .plain)

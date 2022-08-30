@@ -9,7 +9,10 @@ import UIKit
 
 class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocumentBrowserViewControllerDelegate {
 
-    var qsVC = QSViewController()
+    private lazy var homeVC: QSHomeController = {
+        let homeVC = QSHomeController()
+        return homeVC
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,33 +22,9 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         allowsDocumentCreation = true
         allowsPickingMultipleItems = false
         
-        self.addChild(qsVC)
-        view.addSubview(qsVC.view)
-        
-//        let baseTest = QSBaseTest()
-//        baseTest.test_fire()
-//
-//        let enumTest = EnumTest()
-//        enumTest.test_fire(.west)
-//
-//        let classTest = QSClassTest()
-//        classTest.test_fire()
-//
-//        let protocolTest = QSProtocolTest()
-//        protocolTest.test_fire()
-        
-//        let extensionTest = QSExtensionTest()
-//        extensionTest.test_fire()
-        
-//        let initTest = QSInitTest()
-//        initTest.test_fire()
-//
-//        let chipTest = QSChipGatherTest()
-//        chipTest.test_fire()
-        
-        let genericityTest = QSGenericityTest()
-        genericityTest.test_fire()
-        
+        view.addSubview(homeVC.view)
+        self.addChild(homeVC)
+
         // Update the style of the UIDocumentBrowserViewController
         // browserUserInterfaceStyle = .dark
         // view.tintColor = .white
@@ -57,7 +36,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        qsVC.view.frame = view.bounds
+        homeVC.view.frame = view.bounds
     }
     
     
