@@ -11,13 +11,19 @@ public class QSHomeController: UIViewController {
     private lazy var tabModels = [QSHomeTabModel]()
     private lazy var navigationBar: QSHomeNavigationBar = {
         let navigationBar = QSHomeNavigationBar(frame: CGRect())
-        navigationBar.backgroundColor = UIColor.lightGray
+        navigationBar.backgroundColor = UIColor.white
         return navigationBar
     }()
     
     private lazy var tabController: QSTabController = {
         let tabController = QSTabController()
         return tabController
+    }()
+    
+    private lazy var topLineView: UIView = {
+        let topLineView = UIView()
+        topLineView.backgroundColor = UIColor.lightGray
+        return topLineView
     }()
     
     // MARK: override
@@ -35,6 +41,8 @@ public class QSHomeController: UIViewController {
         view.addSubview(tabController.view)
         self.addChild(tabController)
         tabController.reloadData()
+        
+        tabController.topTabBarView.addSubview(topLineView)
     }
     
     public override func viewWillLayoutSubviews() {
@@ -51,18 +59,28 @@ public class QSHomeController: UIViewController {
             width: view.frame.width,
             height: view.frame.height - navigationBar.frame.minY
         )
+        topLineView.frame = CGRect(
+            x: 0,
+            y: tabController.topTabBarView.bounds.height - 1,
+            width: tabController.topTabBarView.bounds.width,
+            height: 1
+        )
     }
     
     // private methods
     private func buildModels() {
         let items: [Dictionary<String, String>] = [
-            ["class" : "QSSwiftDemo.QSTableTestController", "title" : "table测试"],
-            ["class" : "QSSwiftDemo.QSTestPageController", "title" : "测试"],
+            ["class" : "QSSwiftDemo.QSTableTestController", "title" : "火之晨曦"],
+            ["class" : "QSSwiftDemo.QSTestPageController", "title" : "悼亡者之瞳"],
+            ["class" : "QSSwiftDemo.QSTestPageController", "title" : "黑月之潮"],
+            ["class" : "QSSwiftDemo.QSTestPageController", "title" : "奥丁之渊"],
+            ["class" : "QSSwiftDemo.QSTestPageController", "title" : "悼亡者的归来"],
         ]
         for (_, value) in items.enumerated() {
             let barItem = QSTabBarItem(frame: CGRect())
             if let title = value["title"] {
                 barItem.config(title: "\(title)", subtitle: nil)
+                barItem.config(titleFont: UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.regular), subtitleFont: nil)
             }
             var contentVC: UIViewController? = nil
             if let cls = value["class"] {
@@ -114,16 +132,16 @@ extension QSHomeController: QSTabControllerDataSource, QSTabControllerDelegate {
         return 44
     }
     public func tabBarItemSpacing(in tabController: QSTabController) -> CGFloat {
-        10
+        20
     }
     public func indicatorHeight(in tabController: QSTabController) -> CGFloat {
-        return 5
+        return 3
     }
     public func tabBarViewInset(in tabController: QSTabController) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 1, right: 0)
     }
     public func tabBarViewContentInset(in tabController: QSTabController) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
     }
     
     public func tabController(_ tabController: QSTabController, willSelectTab index: Int, type: QSTabSelectType) {

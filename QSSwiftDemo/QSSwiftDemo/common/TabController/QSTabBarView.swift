@@ -82,7 +82,7 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
     
     private func setupSubviews() {
         self.addSubview(contentScrollView)
-        self.addSubview(selectIndicatorView)
+        contentScrollView.addSubview(selectIndicatorView)
     }
     
     private func createAndCongigItemViews() {

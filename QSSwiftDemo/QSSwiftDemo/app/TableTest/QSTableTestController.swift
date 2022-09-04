@@ -70,7 +70,7 @@ class QSTableTestController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        return 110.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -174,7 +174,7 @@ class QSTableViewCell : UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        nameLabel.frame = CGRect(x: 12, y: 5, width: self.frame.width - 24, height: nameLabel.font.lineHeight)
+        nameLabel.frame = CGRect(x: 12, y: 20, width: self.frame.width - 24, height: nameLabel.font.lineHeight)
         sexLabel.frame = CGRect(x: 12, y: nameLabel.frame.maxY + 5, width: self.frame.width - 24, height: sexLabel.font.lineHeight)
         descLabel.frame = CGRect(x: 12, y: sexLabel.frame.maxY, width: self.frame.width - 24, height: 50)
     }

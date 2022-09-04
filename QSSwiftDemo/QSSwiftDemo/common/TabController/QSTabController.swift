@@ -73,14 +73,31 @@ public class QSTabController : UIViewController {
     @objc public var topTabBarView: UIView & QSTabBarViewProtocol {
         return tabBarView
     }
-    
+    @objc public var topLineView: UIView {
+        return topLine
+    }
     // MARK: private
     private static let tabBarViewAreaHeightDefault: CGFloat = 44
     private static let tabControllerAnimationDuration = 0.25
     
     private var tabBarView: (UIView & QSTabBarViewProtocol)!
     private var customTabBarView: (UIView & QSTabBarViewProtocol)?
-    lazy private var pageView: UIScrollView = UIScrollView()
+    private lazy var topLine: UIView = {
+        let topLine = UIView()
+        topLine.backgroundColor = UIColor.lightGray
+        return topLine
+    }()
+    lazy private var pageView: UIScrollView = {
+        let pageView = UIScrollView()
+        pageView.backgroundColor = UIColor.clear
+        pageView.showsVerticalScrollIndicator = false
+        pageView.showsHorizontalScrollIndicator = false
+        pageView.isPagingEnabled = true
+        pageView.bounces = false
+        pageView.delegate = self
+        pageView.scrollsToTop = false
+        return pageView
+    }()
     lazy private var loadedViewControllers: [Int:UIViewController] = [:]
     private var selectVC: UIViewController?
     
@@ -131,15 +148,24 @@ public class QSTabController : UIViewController {
             x: tabBarViewInset.left,
             y: tabBarViewInset.top,
             width: max(0, self.view.frame.width - tabBarViewInset.left - tabBarViewInset.right),
-            height: max(0, tabBarViewAreaHeight - tabBarViewInset.top - tabBarViewInset.bottom))
+            height: max(0, tabBarViewAreaHeight - tabBarViewInset.top - tabBarViewInset.bottom)
+        )
+        topLine.frame = CGRect(
+            x: 0,
+            y: tabBarView.frame.maxY,
+            width: self.view.frame.width,
+            height: 0.5
+        )
         pageView.frame = CGRect(
             x: 0,
-            y: tabBarViewAreaHeight,
+            y: topLine.frame.maxY,
             width: self.view.frame.width,
-            height: max(0, self.view.frame.height - tabBarViewAreaHeight))
+            height: max(0, self.view.frame.height - topLine.frame.maxY)
+        )
         pageView.contentSize = CGSize(
             width: self.view.frame.width * CGFloat(self.numbersOfViewController),
-            height: 0)
+            height: 0
+        )
         if self.loadedViewControllers.count > 0 {
             for (index, vc) in self.loadedViewControllers {
                 vc.view.frame = CGRect(
@@ -185,14 +211,7 @@ public class QSTabController : UIViewController {
             tabBarView .configDelegate(self)
         }
         self.view.addSubview(tabBarView)
-        
-        pageView.backgroundColor = UIColor.clear
-        pageView.showsVerticalScrollIndicator = false
-        pageView.showsHorizontalScrollIndicator = false
-        pageView.isPagingEnabled = true
-        pageView.bounces = false
-        pageView.delegate = self
-        pageView.scrollsToTop = false
+        self.view.addSubview(topLine)
         self.view.addSubview(pageView)
     }
     
