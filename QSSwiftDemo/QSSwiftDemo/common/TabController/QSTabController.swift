@@ -234,7 +234,7 @@ public class QSTabController : UIViewController {
         self.tabBarView.itemSpacing = delegate?.tabBarItemSpacing?(in: self) ?? 0
         self.tabBarView.indicatorHeight = delegate?.indicatorHeight?(in: self) ?? 0
         self.tabBarView.indicatorHidden = delegate?.indicatorHidden?(in: self) ?? false
-        self.tabBarView.contentScrollView.contentInset = delegate?.tabBarViewContentInset?(in: self) ?? UIEdgeInsets()
+        self.tabBarView.contentInset = delegate?.tabBarViewContentInset?(in: self) ?? UIEdgeInsets()
         
         tabBarView.reloadData()
         tabBarView.scroll(to: selectIndex, animated: false)

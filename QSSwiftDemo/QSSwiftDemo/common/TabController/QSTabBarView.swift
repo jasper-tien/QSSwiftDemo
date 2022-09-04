@@ -15,6 +15,7 @@ public protocol QSTabBarViewProtocol {
     var indicatorAnimated: Bool { set get }
     var indicatorHeight: CGFloat { set get }
     var itemSpacing: CGFloat { set get }
+    var contentInset: UIEdgeInsets { set get }
     var selectIndicatorView: UIView { get }
     var contentScrollView: UIScrollView { get }
     func reloadData()
@@ -43,6 +44,12 @@ public class QSTabBarView : UIView, QSTabBarViewProtocol {
     @objc public var indicatorAnimated: Bool = true
     @objc public var indicatorHeight: CGFloat = 5
     @objc public var itemSpacing: CGFloat = 0
+    @objc public var contentInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) {
+        didSet(oldContentInset) {
+            self.contentScrollView.contentInset = self.contentInset;
+            self.contentScrollView.contentOffset = CGPoint(x: self.contentScrollView.contentOffset.x - self.contentInset.left, y: self.contentScrollView.contentOffset.y)
+        }
+    }
     
     @objc public lazy var selectIndicatorView: UIView = {
         let selectIndicatorView = UIView()
