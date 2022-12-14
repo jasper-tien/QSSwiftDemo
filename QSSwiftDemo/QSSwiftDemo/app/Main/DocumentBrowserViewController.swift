@@ -9,7 +9,10 @@ import UIKit
 
 class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocumentBrowserViewControllerDelegate {
 
-    var qsVC = QSViewController()
+    private lazy var homeVC: QSHomeController = {
+        let homeVC = QSHomeController()
+        return homeVC
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,28 +22,9 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         allowsDocumentCreation = true
         allowsPickingMultipleItems = false
         
-        self.addChild(qsVC)
-        view.addSubview(qsVC.view)
-        
-        let baseTest = QSBaseTest()
-        baseTest.test_fire()
-        
-        let testObject = QSTestObject()
-        testObject.test_fire()
-        
-        let man: ManPerson = ManPerson()
-        man.book?.number = 10
-        if (man.book?.number = 100) != nil {
-            
-        }
-        if let books = man.book?.number {
-            let booksCount = books + 10
-        }
-        if man.book?.printNumber() != nil {
-            
-        }
-        
-        
+        view.addSubview(homeVC.view)
+        self.addChild(homeVC)
+
         // Update the style of the UIDocumentBrowserViewController
         // browserUserInterfaceStyle = .dark
         // view.tintColor = .white
@@ -52,7 +36,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        qsVC.view.frame = view.bounds
+        homeVC.view.frame = view.bounds
     }
     
     

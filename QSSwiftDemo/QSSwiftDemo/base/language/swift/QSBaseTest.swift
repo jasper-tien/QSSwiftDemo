@@ -12,6 +12,7 @@ typealias QSName = String
 class QSBaseTest: NSObject {
     
     public func test_fire() {
+        test_base()
         test_string()
         test_array();
         test_set();
@@ -24,27 +25,80 @@ class QSBaseTest: NSObject {
         
         let dic: [String:String] = ["name":"tianmaotao", "sex":"男"]
         test_guard(person: dic)
-        test_闭包()
-        test_尾随闭包()
-        test_enum()
     }
     
     func test_base() {
         let httpMessage = (404, "not found")
+        let httpMessage1 = (statusCode: 404, statusMessage: "not found")
+        // 元组内容分解
+        // 1、分解成单独的变量或者常量
         let (code, _) = httpMessage
+        // 2、通过下标索引访问
+        print("code:\(httpMessage.0) message:\(httpMessage.1)")
+        // 3、通过元素的名字访问
+        print("code:\(httpMessage1.statusCode) message:\(httpMessage1.statusMessage)")
         
         var v1, v2, v3 : Int
-        var d : Double
+        var double : Double?
         var var1: String? = String()
-        var var2: String! = "tianmaotao"
         var var3: String = ""
         var var4: String = var1 ?? var3
-        if var2 != nil {
-            print("print \(var2!)")
+        var name: QSName
+        
+        // If 语句以及强制展开
+        if var1 != nil {
+            print("print \(var1!)")
         }
         
+        // 可选项绑定
+        // 判断可选项是否包含值，如果包含就把值赋给一个临时的常量或者变量
         if let let1 = Int("3"), var var8 = Int("30"), let1 < var8 && let1 < 100 {
             
+        }
+        
+        // 隐式展开可选项
+        //通过在声明的类型后边添加一个叹号，可以去掉检查的需求，也不必每次访问的时候都进行展开。
+        var var2: String! = "tianmaotao"
+        var var5 = var2
+        
+        // 错误处理
+        func canThrowAnError() throws {
+            // do nothing
+        }
+        do {
+            try canThrowAnError()
+        } catch {
+            
+        }
+        
+        // 合并空值运算符
+        // 合并空值运算符 （ a ?? b ）如果可选项 a  有值则展开，如果没有值，是 nil  ，则返回默认值 b 。表达式 a 必须是一个可选类型。表达式 b  必须与 a  的储存类型相同
+        var double1 = 10.0
+        var double2  = double ?? double1 // 等于 double != nil ? double! : double1
+        
+        // 闭区间运算符
+        // 闭区间运算符（ a...b ）定义了从 a  到 b  的一组范围
+        for index in 0...10 {
+            print("闭区间运算符:\(index)")
+        }
+        
+        // 半开区间运算符
+        // 半开区间运算符（ a..<b ）定义了从 a  到 b  但不包括 b  的区间，即 半开 ，因为它只包含起始值但并不包含结束值。
+        for index in 1..<10 {
+            print("半开区间运算符:\(index)")
+        }
+        
+        // 单侧区间
+        // 闭区间有另外一种形式来让区间朝一个方向尽可能的远——比如说，一个包含数组所有元素的区间，从索引 2 到数组的结束。在这种情况下，你可以省略区间运算符一侧的值。
+        var names: [String] = ["t", "m", "t"]
+        for name in names[1...] {
+            print("单侧区间:\(name)") // m, t
+        }
+        for name in names[...1] {
+            print("单侧区间:\(name)") // t, m
+        }
+        for name in names[..<2] {
+            print("单侧区间:\(name)") // t, m
         }
     }
     
@@ -66,29 +120,36 @@ class QSBaseTest: NSObject {
         if str.isEmpty {
             
         }
-        let str3: String = "我是1只🐶"
+        let str3: String = "tianmao"
         for c in str3 {
             print("打印字符 \(c)")
         }
         
         let chars: [Character] = ["我", "是" ,"1", "只" ,"🐱"]
         let str4: String = String(chars)
-        let str5: String = str + str1
+        var str5: String = str + str1
+        let cStr: Character = "1"
+        str5.append(cStr)
         var str6: String = String()
         str6.append("tianmaotao")
         str6.append("1")
         
-        let index0 = str3[str3.startIndex]
-        let index1 = str3[str3.index(before: str3.endIndex)]
-        let index2 = str3[str3.index(str.startIndex, offsetBy: 2)]
+        // 访问
+        let index0Char = str3[str3.startIndex] // t
+        let index1Char = str3[str3.index(after: str3.startIndex)] // i
+        let index6Char = str3[str3.index(before: str3.endIndex)] // o
+        let index3Char = str3[str3.index(str.startIndex, offsetBy: 2)] // a
         for index in str3.indices {
             print("\(str3[index])")
         }
         
+        //  插入
         var str7 = "word"
         str7.insert("h", at: str.startIndex)
         str7.insert(contentsOf: "ello ", at: str7.index(after: str7.startIndex ))
         
+        // 删除
+        str7.remove(at: str7.startIndex)
         let rang = str7.startIndex..<str7.index(after: str7.startIndex)
         str7.removeSubrange(rang)
         
@@ -106,6 +167,7 @@ class QSBaseTest: NSObject {
         array2 = []
         var array3 = Array(repeating: 2, count: 2)
         var array4 = Array(repeating: 1, count: 2)
+        // 合并数组
         var array5 = array3 + array4
         
         
@@ -154,10 +216,34 @@ class QSBaseTest: NSObject {
 //            print("\(str)")
         }
         
-        var set4 = set2.subtracting(set3);
-        for str in set4 {
-            print("\(str)")
-        }
+        // 返回一个合集，只包含set2合集值，不包含set3合集值的新合集。
+        var set4 = set2.subtracting(set3)
+        
+        // 返回一个合集，只包含set2和set3两个共享元素
+        var set5 = set2.intersection(set3)
+        
+        //返回一个合集，只包含set2和set3非共享元素
+        var set6 = set2.symmetricDifference(set3)
+        
+        // 返回一个合集，包含set2和set3所有值
+        var set7 = set2.union(set3)
+        
+        
+        // 使用“相等”运算符 ( == )来判断两个合集是否包含有相同的值；
+        // 使用 isSubset(of:) 方法来确定一个合集的所有值是被某合集包含；
+        // 使用 isSuperset(of:)方法来确定一个合集是否包含某个合集的所有值；
+        // 使用 isStrictSubset(of:) 或者 isStrictSuperset(of:)方法来确定是个合集是否为某一个合集的子集或者超集，但并不相等；
+        // 使用 isDisjoint(with:)方法来判断两个合集是否拥有完全不同的值。
+        let houseAnimals: Set = ["🐶", "🐱"]
+        let farmAnimals: Set = ["🐮", "🐔", "🐑", "🐶", "🐱"]
+        let cityAnimals: Set = ["🐦", "🐭"]
+         
+        houseAnimals.isSubset(of: farmAnimals)
+        // true
+        farmAnimals.isSuperset(of: houseAnimals)
+        // true
+        farmAnimals.isDisjoint(with: cityAnimals)
+        // true
     }
     
     func test_dictionary() {
@@ -166,12 +252,14 @@ class QSBaseTest: NSObject {
         dic = [:]
         var dic2 = [1:"1", 2:"2", 3:"3"]
         
-        if let value = dic2.updateValue("4", forKey: 4) {
+        if let oleValue = dic2.updateValue("4", forKey: 4) {
 //            dic2[1] = nil
             if let value1 = dic2.removeValue(forKey: 1) {
                 
             }
         }
+        dic[1] = "tian"
+        dic[2] = nil
         
         for (key, value) in dic2 {
             
@@ -217,6 +305,7 @@ class QSBaseTest: NSObject {
             print("default")
         }
         
+        // 区间匹配
         let num = 89
         switch num {
         case 0..<10 :
@@ -229,6 +318,8 @@ class QSBaseTest: NSObject {
             print("none")
         }
         
+        // 元组
+        // 使用下划线（ _）来表明匹配所有可能的值
         let point = (2, 2)
         switch point {
         case (0, 0) :
@@ -243,6 +334,8 @@ class QSBaseTest: NSObject {
             print("none")
         }
         
+        // 值绑定
+        // 将匹配到的值临时绑定为一个常量或者变量，来给情况的函数体使用
         switch point {
         case (let x, 1):
             print("(\(x), 1)")
@@ -252,6 +345,7 @@ class QSBaseTest: NSObject {
             print("none")
         }
         
+        // Where
         switch point {
         case let(x, y) where x == y:
             print("x==y")
@@ -357,110 +451,5 @@ class QSBaseTest: NSObject {
         } else {
             return _test_multiply(a: a, b: b)
         }
-    }
-    
-    func test_闭包() {
-        let sum1 = test_函数类型作为参数(1, b: 3, funcName: {
-            (a: Int, b: Int) -> Int in
-            let sum = a + b
-            return sum
-        })
-    }
-    func test_闭包简写() {
-        let sum2 = test_函数类型作为参数(2, b: 3, funcName: {
-            $0 + $1
-        })
-    }
-    func test_尾随闭包_多参数(url: String, completion: (String) -> Void, failure: () -> Void) {
-        var isSucess: Bool = false
-        if isSucess {
-            completion("sucess")
-        } else {
-            failure()
-        }
-    }
-    func test_尾随闭包() {
-        let sum = test_函数类型作为参数(2, b: 3) {
-            $0 + $1
-        }
-        
-        test_尾随闭包_多参数(url: "www.baidu.com") { (url: String) -> Void in
-            print("\(url)")
-        } failure: {
-            print("failure")
-        }
-        
-        let digitNames = [
-             0: "Zero",1: "One",2: "Two",  3: "Three",4: "Four",
-             5: "Five",6: "Six",7: "Seven",8: "Eight",9: "Nine"
-          ]
-        let list: [Int] = [16,58,510]
-        let strings = list.map() {
-            (num: Int) -> String in
-            var number = num
-            var outstr = ""
-            repeat {
-                outstr = digitNames[number % 10]! + outstr
-                number /= 10
-            }  while number > 0
-            return outstr
-        }
-        
-    }
-    
-    var handlers: [() -> Void] = []
-    func test_闭包逃逸(completionHandler: @escaping () -> Void) {
-        handlers.append(completionHandler)
-    }
-    
-    enum Enum1 {
-        case e1
-        case e2
-    }
-    enum Enum2: CaseIterable {
-        case e1
-        case e2
-    }
-    enum Enum3 {
-        case point(Float, Float)
-        case name(String)
-    }
-    enum Enum4: Character {
-        case e1 = "a"
-        case e2 = "b"
-    }
-    enum Enum5: Int {
-        case e1 = 1, e2, e3, e4
-    }
-    enum Enum6: String {
-        case e1, e2, e3, e4
-    }
-    func test_enum () {
-        let en = Enum1.e1
-        switch en{
-        case .e1 :
-            print("")
-        case .e2:
-            print("")
-        default:
-            print("")
-        }
-        for item in Enum2.allCases {
-            
-        }
-        
-        let en1 = Enum3.point(2, 3)
-        switch en1 {
-        case .point(let x, let y):
-            print("\(x) \(y)")
-        case .name(let name):
-            print("\(name)")
-        }
-        
-        let en2 = Enum4.e1.rawValue
-        let en3 = Enum5.e1.rawValue
-        let en4 = Enum6.e3.rawValue
-        
-        let en5 = Enum6(rawValue: "unknow")
     }
 }

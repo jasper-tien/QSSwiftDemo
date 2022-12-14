@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E403D082802BF410009A0FF /* QSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E403D072802BF410009A0FF /* QSViewController.swift */; };
+		8E0EE03928A8CE3E00A083E3 /* QSProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */; };
+		8E0EE03B28A93F1900A083E3 /* QSExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */; };
+		8E0EE03D28A9455300A083E3 /* QSBlockTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EE03C28A9455300A083E3 /* QSBlockTest.swift */; };
+		8E11A84C28B5C76300E06DFE /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8E11A84B28B5C76300E06DFE /* Config.xcconfig */; };
+		8E27487F28BD172100BF5597 /* QSHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27487E28BD172100BF5597 /* QSHomeController.swift */; };
+		8E2878A628ABC8AA0026B3B6 /* QSTabTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2878A528ABC8AA0026B3B6 /* QSTabTestController.swift */; };
 		8E7054D22830D07700C074F9 /* CreationalPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7054D12830D07700C074F9 /* CreationalPattern.swift */; };
+		8E71633328B25A4C00ABA57C /* QSChipGatherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E71633228B25A4C00ABA57C /* QSChipGatherTest.swift */; };
 		8E76018D26C78B74002ADF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E76018C26C78B74002ADF00 /* AppDelegate.swift */; };
 		8E76018F26C78B74002ADF00 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E76018E26C78B74002ADF00 /* DocumentBrowserViewController.swift */; };
 		8E76019126C78B74002ADF00 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E76019026C78B74002ADF00 /* DocumentViewController.swift */; };
@@ -18,9 +24,19 @@
 		8E76019B26C78B75002ADF00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E76019926C78B75002ADF00 /* LaunchScreen.storyboard */; };
 		8E7601A626C78B75002ADF00 /* QSSwiftDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7601A526C78B75002ADF00 /* QSSwiftDemoTests.swift */; };
 		8E7601B126C78B75002ADF00 /* QSSwiftDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7601B026C78B75002ADF00 /* QSSwiftDemoUITests.swift */; };
+		8E8AE72828BB44650046C2FC /* QSGenericityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AE72728BB44650046C2FC /* QSGenericityTest.swift */; };
 		8E997FD827F980D200D330C3 /* QSBaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E997FD727F980D200D330C3 /* QSBaseTest.swift */; };
-		8E997FDA27F9840300D330C3 /* QSClaseStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E997FD927F9840300D330C3 /* QSClaseStruct.swift */; };
+		8EAADE6C28BA230800BD5874 /* UIView+qs_Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAADE6B28BA230800BD5874 /* UIView+qs_Frame.m */; };
 		8EABB317280BF4F3001782AE /* QSBaseUIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EABB316280BF4F3001782AE /* QSBaseUIAdapter.swift */; };
+		8EB90F5B28BDAD500018D4B4 /* QSTestPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB90F5A28BDAD500018D4B4 /* QSTestPageController.swift */; };
+		8EB90F5E28BDB81C0018D4B4 /* QSTableTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB90F5D28BDB81C0018D4B4 /* QSTableTestController.swift */; };
+		8ED6433028A3EE22005908C5 /* QSEnumTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */; };
+		8ED6433228A3EE34005908C5 /* QSClassTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6433128A3EE34005908C5 /* QSClassTest.swift */; };
+		8ED6433428A3EE40005908C5 /* QSStructTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6433328A3EE40005908C5 /* QSStructTest.swift */; };
+		8EE21A4128B08C2D0007BDEB /* QSInitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE21A4028B08C2D0007BDEB /* QSInitTest.swift */; };
+		8EEF0555289AB6EA00CADD1E /* QSTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF0554289AB6EA00CADD1E /* QSTabController.swift */; };
+		8EEF0559289AB71000CADD1E /* QSTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF0558289AB71000CADD1E /* QSTabBarView.swift */; };
+		8EEF055B289AB72400CADD1E /* QSTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF055A289AB72400CADD1E /* QSTabBarItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +57,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8E403D072802BF410009A0FF /* QSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSViewController.swift; sourceTree = "<group>"; };
+		8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSProtocolTest.swift; sourceTree = "<group>"; };
+		8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSExtensionTest.swift; sourceTree = "<group>"; };
+		8E0EE03C28A9455300A083E3 /* QSBlockTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSBlockTest.swift; sourceTree = "<group>"; };
+		8E11A84B28B5C76300E06DFE /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		8E27487E28BD172100BF5597 /* QSHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSHomeController.swift; sourceTree = "<group>"; };
+		8E2878A528ABC8AA0026B3B6 /* QSTabTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabTestController.swift; sourceTree = "<group>"; };
 		8E7054D12830D07700C074F9 /* CreationalPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationalPattern.swift; sourceTree = "<group>"; };
+		8E71633228B25A4C00ABA57C /* QSChipGatherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSChipGatherTest.swift; sourceTree = "<group>"; };
 		8E76018926C78B74002ADF00 /* QSSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E76018C26C78B74002ADF00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E76018E26C78B74002ADF00 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
@@ -58,9 +80,21 @@
 		8E7601AC26C78B75002ADF00 /* QSSwiftDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QSSwiftDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7601B026C78B75002ADF00 /* QSSwiftDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSSwiftDemoUITests.swift; sourceTree = "<group>"; };
 		8E7601B226C78B75002ADF00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E8AE72728BB44650046C2FC /* QSGenericityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSGenericityTest.swift; sourceTree = "<group>"; };
 		8E997FD727F980D200D330C3 /* QSBaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSBaseTest.swift; sourceTree = "<group>"; };
-		8E997FD927F9840300D330C3 /* QSClaseStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSClaseStruct.swift; sourceTree = "<group>"; };
+		8EAADE6628BA22B000BD5874 /* QSSwiftDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QSSwiftDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		8EAADE6A28BA230800BD5874 /* UIView+qs_Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+qs_Frame.h"; sourceTree = "<group>"; };
+		8EAADE6B28BA230800BD5874 /* UIView+qs_Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+qs_Frame.m"; sourceTree = "<group>"; };
 		8EABB316280BF4F3001782AE /* QSBaseUIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSBaseUIAdapter.swift; sourceTree = "<group>"; };
+		8EB90F5A28BDAD500018D4B4 /* QSTestPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTestPageController.swift; sourceTree = "<group>"; };
+		8EB90F5D28BDB81C0018D4B4 /* QSTableTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTableTestController.swift; sourceTree = "<group>"; };
+		8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSEnumTest.swift; sourceTree = "<group>"; };
+		8ED6433128A3EE34005908C5 /* QSClassTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSClassTest.swift; sourceTree = "<group>"; };
+		8ED6433328A3EE40005908C5 /* QSStructTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSStructTest.swift; sourceTree = "<group>"; };
+		8EE21A4028B08C2D0007BDEB /* QSInitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSInitTest.swift; sourceTree = "<group>"; };
+		8EEF0554289AB6EA00CADD1E /* QSTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabController.swift; sourceTree = "<group>"; };
+		8EEF0558289AB71000CADD1E /* QSTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabBarView.swift; sourceTree = "<group>"; };
+		8EEF055A289AB72400CADD1E /* QSTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabBarItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,12 +122,112 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8E7054D02830CA9700C074F9 /* DesignPatterns */ = {
+		8E27487328BD117000BF5597 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				8EAADE6528BA227D00BD5874 /* Utils */,
+				8EEF0553289AB66100CADD1E /* TabController */,
+				8EABB315280BF4A0001782AE /* UIAdapter */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		8E27487428BD117000BF5597 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				8EB90F5C28BDB8030018D4B4 /* TableTest */,
+				8EB90F5928BDAD370018D4B4 /* Test */,
+				8E27487628BD119600BF5597 /* Main */,
+				8E27487728BD11CA00BF5597 /* Home */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		8E27487528BD117000BF5597 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				8E27488028BD18AD00BF5597 /* config */,
+				8E27487D28BD13F600BF5597 /* pattern */,
+				8E27487A28BD12A700BF5597 /* language */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		8E27487628BD119600BF5597 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8E76018C26C78B74002ADF00 /* AppDelegate.swift */,
+				8E76018E26C78B74002ADF00 /* DocumentBrowserViewController.swift */,
+				8E76019026C78B74002ADF00 /* DocumentViewController.swift */,
+				8E76019226C78B74002ADF00 /* Document.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		8E27487728BD11CA00BF5597 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8E27487E28BD172100BF5597 /* QSHomeController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		8E27487828BD121D00BF5597 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				8E27487C28BD135700BF5597 /* tab */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		8E27487A28BD12A700BF5597 /* language */ = {
+			isa = PBXGroup;
+			children = (
+				8E27487B28BD12B500BF5597 /* swift */,
+			);
+			path = language;
+			sourceTree = "<group>";
+		};
+		8E27487B28BD12B500BF5597 /* swift */ = {
+			isa = PBXGroup;
+			children = (
+				8E997FD727F980D200D330C3 /* QSBaseTest.swift */,
+				8ED6433128A3EE34005908C5 /* QSClassTest.swift */,
+				8E0EE03C28A9455300A083E3 /* QSBlockTest.swift */,
+				8ED6433328A3EE40005908C5 /* QSStructTest.swift */,
+				8ED6432F28A3EE22005908C5 /* QSEnumTest.swift */,
+				8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */,
+				8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */,
+				8EE21A4028B08C2D0007BDEB /* QSInitTest.swift */,
+				8E71633228B25A4C00ABA57C /* QSChipGatherTest.swift */,
+				8E8AE72728BB44650046C2FC /* QSGenericityTest.swift */,
+			);
+			path = swift;
+			sourceTree = "<group>";
+		};
+		8E27487C28BD135700BF5597 /* tab */ = {
+			isa = PBXGroup;
+			children = (
+				8E2878A528ABC8AA0026B3B6 /* QSTabTestController.swift */,
+			);
+			path = tab;
+			sourceTree = "<group>";
+		};
+		8E27487D28BD13F600BF5597 /* pattern */ = {
 			isa = PBXGroup;
 			children = (
 				8E7054D12830D07700C074F9 /* CreationalPattern.swift */,
 			);
-			path = DesignPatterns;
+			path = pattern;
+			sourceTree = "<group>";
+		};
+		8E27488028BD18AD00BF5597 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				8EAADE6628BA22B000BD5874 /* QSSwiftDemo-Bridging-Header.h */,
+				8E11A84B28B5C76300E06DFE /* Config.xcconfig */,
+			);
+			path = config;
 			sourceTree = "<group>";
 		};
 		8E76018026C78B74002ADF00 = {
@@ -119,15 +253,10 @@
 		8E76018B26C78B74002ADF00 /* QSSwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
-				8E76018C26C78B74002ADF00 /* AppDelegate.swift */,
-				8E76018E26C78B74002ADF00 /* DocumentBrowserViewController.swift */,
-				8E76019026C78B74002ADF00 /* DocumentViewController.swift */,
-				8E76019226C78B74002ADF00 /* Document.swift */,
-				8E403D072802BF410009A0FF /* QSViewController.swift */,
-				8E997FD727F980D200D330C3 /* QSBaseTest.swift */,
-				8E997FD927F9840300D330C3 /* QSClaseStruct.swift */,
-				8E7054D02830CA9700C074F9 /* DesignPatterns */,
-				8EABB315280BF4A0001782AE /* UIAdapter */,
+				8E27487528BD117000BF5597 /* base */,
+				8E27487328BD117000BF5597 /* common */,
+				8E27487428BD117000BF5597 /* app */,
+				8E27487828BD121D00BF5597 /* test */,
 				8E76019426C78B74002ADF00 /* Main.storyboard */,
 				8E76019726C78B75002ADF00 /* Assets.xcassets */,
 				8E76019926C78B75002ADF00 /* LaunchScreen.storyboard */,
@@ -154,12 +283,47 @@
 			path = QSSwiftDemoUITests;
 			sourceTree = "<group>";
 		};
+		8EAADE6528BA227D00BD5874 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8EAADE6A28BA230800BD5874 /* UIView+qs_Frame.h */,
+				8EAADE6B28BA230800BD5874 /* UIView+qs_Frame.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		8EABB315280BF4A0001782AE /* UIAdapter */ = {
 			isa = PBXGroup;
 			children = (
 				8EABB316280BF4F3001782AE /* QSBaseUIAdapter.swift */,
 			);
 			path = UIAdapter;
+			sourceTree = "<group>";
+		};
+		8EB90F5928BDAD370018D4B4 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				8EB90F5A28BDAD500018D4B4 /* QSTestPageController.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		8EB90F5C28BDB8030018D4B4 /* TableTest */ = {
+			isa = PBXGroup;
+			children = (
+				8EB90F5D28BDB81C0018D4B4 /* QSTableTestController.swift */,
+			);
+			path = TableTest;
+			sourceTree = "<group>";
+		};
+		8EEF0553289AB66100CADD1E /* TabController */ = {
+			isa = PBXGroup;
+			children = (
+				8EEF0554289AB6EA00CADD1E /* QSTabController.swift */,
+				8EEF0558289AB71000CADD1E /* QSTabBarView.swift */,
+				8EEF055A289AB72400CADD1E /* QSTabBarItem.swift */,
+			);
+			path = TabController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +336,7 @@
 				8E76018526C78B74002ADF00 /* Sources */,
 				8E76018626C78B74002ADF00 /* Frameworks */,
 				8E76018726C78B74002ADF00 /* Resources */,
+				8E11A84A28B5C6DC00E06DFE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -229,6 +394,7 @@
 				TargetAttributes = {
 					8E76018826C78B74002ADF00 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1320;
 					};
 					8E7601A026C78B75002ADF00 = {
 						CreatedOnToolsVersion = 12.5;
@@ -265,6 +431,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E11A84C28B5C76300E06DFE /* Config.xcconfig in Resources */,
 				8E76019B26C78B75002ADF00 /* LaunchScreen.storyboard in Resources */,
 				8E76019826C78B75002ADF00 /* Assets.xcassets in Resources */,
 				8E76019626C78B74002ADF00 /* Main.storyboard in Resources */,
@@ -287,20 +454,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8E11A84A28B5C6DC00E06DFE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\necho \"----${LD_MAP_FILE_PATH}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8E76018526C78B74002ADF00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EEF055B289AB72400CADD1E /* QSTabBarItem.swift in Sources */,
+				8E0EE03B28A93F1900A083E3 /* QSExtensionTest.swift in Sources */,
+				8EB90F5B28BDAD500018D4B4 /* QSTestPageController.swift in Sources */,
 				8E76019326C78B74002ADF00 /* Document.swift in Sources */,
-				8E403D082802BF410009A0FF /* QSViewController.swift in Sources */,
-				8E997FDA27F9840300D330C3 /* QSClaseStruct.swift in Sources */,
+				8ED6433428A3EE40005908C5 /* QSStructTest.swift in Sources */,
+				8ED6433228A3EE34005908C5 /* QSClassTest.swift in Sources */,
+				8E2878A628ABC8AA0026B3B6 /* QSTabTestController.swift in Sources */,
+				8EEF0555289AB6EA00CADD1E /* QSTabController.swift in Sources */,
 				8E7054D22830D07700C074F9 /* CreationalPattern.swift in Sources */,
+				8E0EE03D28A9455300A083E3 /* QSBlockTest.swift in Sources */,
+				8E8AE72828BB44650046C2FC /* QSGenericityTest.swift in Sources */,
+				8ED6433028A3EE22005908C5 /* QSEnumTest.swift in Sources */,
 				8E997FD827F980D200D330C3 /* QSBaseTest.swift in Sources */,
+				8EAADE6C28BA230800BD5874 /* UIView+qs_Frame.m in Sources */,
 				8E76019126C78B74002ADF00 /* DocumentViewController.swift in Sources */,
+				8E27487F28BD172100BF5597 /* QSHomeController.swift in Sources */,
+				8EE21A4128B08C2D0007BDEB /* QSInitTest.swift in Sources */,
 				8E76018F26C78B74002ADF00 /* DocumentBrowserViewController.swift in Sources */,
+				8EEF0559289AB71000CADD1E /* QSTabBarView.swift in Sources */,
+				8E71633328B25A4C00ABA57C /* QSChipGatherTest.swift in Sources */,
 				8EABB317280BF4F3001782AE /* QSBaseUIAdapter.swift in Sources */,
 				8E76018D26C78B74002ADF00 /* AppDelegate.swift in Sources */,
+				8E0EE03928A8CE3E00A083E3 /* QSProtocolTest.swift in Sources */,
+				8EB90F5E28BDB81C0018D4B4 /* QSTableTestController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +559,7 @@
 /* Begin XCBuildConfiguration section */
 		8E7601B326C78B75002ADF00 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E11A84B28B5C76300E06DFE /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -418,6 +621,7 @@
 		};
 		8E7601B426C78B75002ADF00 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E11A84B28B5C76300E06DFE /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -476,7 +680,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = QSSwiftDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -484,6 +690,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianmaotao.test.QSSwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QSSwiftDemo/base/config/QSSwiftDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -494,7 +702,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = QSSwiftDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -502,6 +712,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianmaotao.test.QSSwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QSSwiftDemo/base/config/QSSwiftDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
