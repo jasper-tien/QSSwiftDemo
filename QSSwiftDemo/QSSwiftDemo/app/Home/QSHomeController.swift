@@ -34,7 +34,7 @@ public class QSHomeController: UIViewController {
         buildModels()
         
         view.addSubview(navigationBar)
-        
+        testEntrance()
         
         tabController.delegate = self
         tabController.dataSource = self
@@ -95,6 +95,11 @@ public class QSHomeController: UIViewController {
                 self.tabModels.append(model)
             }
         }
+    }
+    
+    private func testEntrance() {
+        let test = QSAlgorithmTest()
+        test.fireFunc()
     }
 }
 
