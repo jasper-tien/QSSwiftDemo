@@ -13,7 +13,6 @@
 		8E11A84C28B5C76300E06DFE /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8E11A84B28B5C76300E06DFE /* Config.xcconfig */; };
 		8E27487F28BD172100BF5597 /* QSHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27487E28BD172100BF5597 /* QSHomeController.swift */; };
 		8E2878A628ABC8AA0026B3B6 /* QSTabTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2878A528ABC8AA0026B3B6 /* QSTabTestController.swift */; };
-		8E7054D22830D07700C074F9 /* CreationalPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7054D12830D07700C074F9 /* CreationalPattern.swift */; };
 		8E71633328B25A4C00ABA57C /* QSChipGatherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E71633228B25A4C00ABA57C /* QSChipGatherTest.swift */; };
 		8E76018D26C78B74002ADF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E76018C26C78B74002ADF00 /* AppDelegate.swift */; };
 		8E76018F26C78B74002ADF00 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E76018E26C78B74002ADF00 /* DocumentBrowserViewController.swift */; };
@@ -37,6 +36,8 @@
 		8EEF0555289AB6EA00CADD1E /* QSTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF0554289AB6EA00CADD1E /* QSTabController.swift */; };
 		8EEF0559289AB71000CADD1E /* QSTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF0558289AB71000CADD1E /* QSTabBarView.swift */; };
 		8EEF055B289AB72400CADD1E /* QSTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF055A289AB72400CADD1E /* QSTabBarItem.swift */; };
+		8EFA06302953F4990067BC2F /* QSAlgorithmTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA062F2953F4990067BC2F /* QSAlgorithmTest.swift */; };
+		8EFA06322953F4F80067BC2F /* QSDesignPatternsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA06312953F4F80067BC2F /* QSDesignPatternsTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +64,6 @@
 		8E11A84B28B5C76300E06DFE /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		8E27487E28BD172100BF5597 /* QSHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSHomeController.swift; sourceTree = "<group>"; };
 		8E2878A528ABC8AA0026B3B6 /* QSTabTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabTestController.swift; sourceTree = "<group>"; };
-		8E7054D12830D07700C074F9 /* CreationalPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationalPattern.swift; sourceTree = "<group>"; };
 		8E71633228B25A4C00ABA57C /* QSChipGatherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSChipGatherTest.swift; sourceTree = "<group>"; };
 		8E76018926C78B74002ADF00 /* QSSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E76018C26C78B74002ADF00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +95,8 @@
 		8EEF0554289AB6EA00CADD1E /* QSTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabController.swift; sourceTree = "<group>"; };
 		8EEF0558289AB71000CADD1E /* QSTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabBarView.swift; sourceTree = "<group>"; };
 		8EEF055A289AB72400CADD1E /* QSTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSTabBarItem.swift; sourceTree = "<group>"; };
+		8EFA062F2953F4990067BC2F /* QSAlgorithmTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSAlgorithmTest.swift; sourceTree = "<group>"; };
+		8EFA06312953F4F80067BC2F /* QSDesignPatternsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSDesignPatternsTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,7 +218,8 @@
 		8E27487D28BD13F600BF5597 /* pattern */ = {
 			isa = PBXGroup;
 			children = (
-				8E7054D12830D07700C074F9 /* CreationalPattern.swift */,
+				8EFA062F2953F4990067BC2F /* QSAlgorithmTest.swift */,
+				8EFA06312953F4F80067BC2F /* QSDesignPatternsTest.swift */,
 			);
 			path = pattern;
 			sourceTree = "<group>";
@@ -487,7 +490,6 @@
 				8ED6433228A3EE34005908C5 /* QSClassTest.swift in Sources */,
 				8E2878A628ABC8AA0026B3B6 /* QSTabTestController.swift in Sources */,
 				8EEF0555289AB6EA00CADD1E /* QSTabController.swift in Sources */,
-				8E7054D22830D07700C074F9 /* CreationalPattern.swift in Sources */,
 				8E0EE03D28A9455300A083E3 /* QSBlockTest.swift in Sources */,
 				8E8AE72828BB44650046C2FC /* QSGenericityTest.swift in Sources */,
 				8ED6433028A3EE22005908C5 /* QSEnumTest.swift in Sources */,
@@ -499,7 +501,9 @@
 				8E76018F26C78B74002ADF00 /* DocumentBrowserViewController.swift in Sources */,
 				8EEF0559289AB71000CADD1E /* QSTabBarView.swift in Sources */,
 				8E71633328B25A4C00ABA57C /* QSChipGatherTest.swift in Sources */,
+				8EFA06302953F4990067BC2F /* QSAlgorithmTest.swift in Sources */,
 				8EABB317280BF4F3001782AE /* QSBaseUIAdapter.swift in Sources */,
+				8EFA06322953F4F80067BC2F /* QSDesignPatternsTest.swift in Sources */,
 				8E76018D26C78B74002ADF00 /* AppDelegate.swift in Sources */,
 				8E0EE03928A8CE3E00A083E3 /* QSProtocolTest.swift in Sources */,
 				8EB90F5E28BDB81C0018D4B4 /* QSTableTestController.swift in Sources */,
