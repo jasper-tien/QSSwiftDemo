@@ -125,6 +125,11 @@ class QSBaseTest: NSObject {
             print("打印字符 \(c)")
         }
         
+        let string1 = "tian"
+        let string2 = "maotao"
+        let string3 = "xing:\(string1) ming:\(string2)"
+        let string4 = string1 + string2
+        
         let chars: [Character] = ["我", "是" ,"1", "只" ,"🐱"]
         let str4: String = String(chars)
         var str5: String = str + str1
@@ -154,7 +159,8 @@ class QSBaseTest: NSObject {
         str7.removeSubrange(rang)
         
         let indexEnd = str7.firstIndex(of: " ") ?? str7.endIndex
-        let subStr = str7[..<indexEnd]
+        //可以使用同样的方式去操作 SubString 和 String。然而，跟 String 不同的是，你只有在短时间内需要操作字符串时，才会使用 SubString。当你需要长时间保存结果时，就把 SubString 转化为 String 的实例
+        let subStr = str7[..<indexEnd] // hello, 得到一个 SubString 的实例
         let subStr1 = String(subStr)
         let numbers = [1, 3, 4, 5]
     }
