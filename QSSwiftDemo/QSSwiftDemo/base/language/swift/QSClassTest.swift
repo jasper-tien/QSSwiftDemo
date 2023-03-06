@@ -28,6 +28,11 @@ class QSClassTest: QSTestProtocol {
         
         let media = QSMediaTest()
         media.test_print()
+        
+        let subscriptObj = SubscriptClass()
+        if let value = subscriptObj[1] {
+            print("\(value)")
+        }
     }
 }
 
@@ -51,6 +56,7 @@ open class Person {
     // 1、你定义的存储属性；
     // 2、你继承的存储属性；
     // 3、你继承的计算属性；
+    // ps：也可以作用在全局变量上
     var money: Int = 0 {
         willSet(newMoney) {
             print("person：newMoney:\(newMoney)");
@@ -178,4 +184,31 @@ class QSMediaTest {
             }
         }
     }
+}
+
+// 下标语法
+// 标可以定义在类、结构体和枚举中，是访问集合、列表或序列中元素的快捷方式。
+class SubscriptClass {
+    var numbers = ["t", "m", "t"]
+    
+    // 指定一个或多个输入参数和返回类型，如果是多参数使用时下标的入参使用逗号分隔；
+    // 这种行为由 getter 和 setter 实现，有点类似计算型属性
+    subscript(index: Int) -> String? {
+        set {
+            if index < numbers.count {
+                numbers[index] = newValue ?? ""
+            }
+        }
+        get {
+            if index < numbers.count {
+                return numbers[index]
+            }
+            return nil
+        }
+    }
+    
+    // 如同只读计算型属性，可以省略只读下标的 get 关键字
+//    subscript(index: Int) -> Int {
+//
+//    }
 }

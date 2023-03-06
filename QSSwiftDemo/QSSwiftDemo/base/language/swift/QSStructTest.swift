@@ -48,6 +48,11 @@ struct Rect {
             point.x = newCenter.x - size.width / 2
             point.y = newCenter.y - size.height / 2
         }
+//        // 简写setter
+//        set {
+//            point.x = newValue.x - size.width / 2
+//            point.y = newValue.y - size.height / 2
+//        }
     }
     
     //简写设置器（setter）声明
