@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E0813D929B87C1100FA1C98 /* QSHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0813D829B87C1100FA1C98 /* QSHashMap.swift */; };
 		8E0EE03928A8CE3E00A083E3 /* QSProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */; };
 		8E0EE03B28A93F1900A083E3 /* QSExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */; };
 		8E0EE03D28A9455300A083E3 /* QSBlockTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EE03C28A9455300A083E3 /* QSBlockTest.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E0813D829B87C1100FA1C98 /* QSHashMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSHashMap.swift; sourceTree = "<group>"; };
 		8E0EE03828A8CE3E00A083E3 /* QSProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSProtocolTest.swift; sourceTree = "<group>"; };
 		8E0EE03A28A93F1900A083E3 /* QSExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSExtensionTest.swift; sourceTree = "<group>"; };
 		8E0EE03C28A9455300A083E3 /* QSBlockTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSBlockTest.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				8EFA062F2953F4990067BC2F /* QSAlgorithmTest.swift */,
 				8EFA06312953F4F80067BC2F /* QSDesignPatternsTest.swift */,
+				8E0813D829B87C1100FA1C98 /* QSHashMap.swift */,
 			);
 			path = pattern;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				8EEF0559289AB71000CADD1E /* QSTabBarView.swift in Sources */,
 				8E71633328B25A4C00ABA57C /* QSChipGatherTest.swift in Sources */,
 				8EFA06302953F4990067BC2F /* QSAlgorithmTest.swift in Sources */,
+				8E0813D929B87C1100FA1C98 /* QSHashMap.swift in Sources */,
 				8EABB317280BF4F3001782AE /* QSBaseUIAdapter.swift in Sources */,
 				8EFA06322953F4F80067BC2F /* QSDesignPatternsTest.swift in Sources */,
 				8E76018D26C78B74002ADF00 /* AppDelegate.swift in Sources */,

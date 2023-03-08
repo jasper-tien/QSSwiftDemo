@@ -20,28 +20,31 @@ class QSTestPageController: UIViewController {
     }
     
     private func testFire() {
-        let baseTest = QSBaseTest()
-        baseTest.test_fire()
-
-        let enumTest = EnumTest()
-        enumTest.test_fire(.west)
-
-        let classTest = QSClassTest()
-        classTest.test_fire()
-
-        let protocolTest = QSProtocolTest()
-        protocolTest.test_fire()
-        
-        let extensionTest = QSExtensionTest()
-        extensionTest.test_fire()
-        
-        let initTest = QSInitTest()
-        initTest.test_fire()
-
-        let chipTest = QSChipGatherTest()
-        chipTest.test_fire()
-        
-        let genericityTest = QSGenericityTest()
-        genericityTest.test_fire()
+//        let baseTest = QSBaseTest()
+//        baseTest.test_fire()
+//
+//        let enumTest = EnumTest()
+//        enumTest.test_fire(.west)
+//
+//        let classTest = QSClassTest()
+//        classTest.test_fire()
+//
+//        let protocolTest = QSProtocolTest()
+//        protocolTest.test_fire()
+//
+//        let extensionTest = QSExtensionTest()
+//        extensionTest.test_fire()
+//
+//        let initTest = QSInitTest()
+//        initTest.test_fire()
+//
+//        let chipTest = QSChipGatherTest()
+//        chipTest.test_fire()
+//
+//        let genericityTest = QSGenericityTest()
+//        genericityTest.test_fire()
+//
+//        let hashTest = HashTest()
+//        hashTest.fire()
     }
 }
